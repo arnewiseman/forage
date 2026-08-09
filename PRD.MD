@@ -49,7 +49,17 @@ If you find yourself building any of the above, you've drifted off the PRD.
 | Hardcoded `portland-jobs.json` | 15–20 real open roles | Pull from 2–3 verified Greenhouse-hosted Portland-area company boards (`boards-api.greenhouse.io/v1/boards/{token}/jobs`), check tokens live in browser first, no scraping infra needed |
 | Hardcoded `growth-sectors.json` | fallback when no direct job match | 5–10 rows pulled from QualityInfo.org Portland Metro data, by hand |
 
-**Disclosure line for demo:** "Occupation matching and skill gaps are live O*NET/CareerOneStop calls. The Portland job listings are a real dataset we pulled this morning from three local employers' public job boards — not a live feed."
+**Disclosure line for demo:** ~~"Occupation matching and skill gaps are live O*NET/CareerOneStop calls. The Portland job listings are a real dataset we pulled this morning from three local employers' public job boards — not a live feed."~~
+
+> **AMENDED 2026-08-08 — say this instead.** Greenhouse's and Lever's board APIs turned out to be
+> public and unauthenticated, so the job listings *are* a live feed. Verified: 6/6 boards reachable,
+> 48 open Portland-metro roles. This deletes the 0:10–0:30 hand-assembly block below.
+>
+> New line: *"Occupation matching and skill gaps are live O\*NET and CareerOneStop calls. The job
+> listings are fetched live from six Portland employers' public job boards. We match jobs to
+> occupations on title keywords, which is rough — these are leads, not a filtered shortlist."*
+>
+> Saying the last sentence out loud is worth more than hiding it. See `SPLIT.md`.
 
 ## Architecture (dead simple, on purpose)
 

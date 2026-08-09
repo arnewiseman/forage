@@ -38,12 +38,17 @@ Stated plainly here and in the app's own footer.
 | Related / adjacent occupations | **Live** — O\*NET related-occupations service |
 | Plain-language "why these overlap" text | **Written by us**, templated over O\*NET's related list |
 | Skills gap between two occupations | **Live** — CareerOneStop Skills Gap API (DOL-sponsored) |
-| Portland job listings | **Hardcoded** — `data/portland-jobs.json`, a real dataset assembled by hand from local employers' public job boards. Not a live feed. |
+| Portland job listings | **Live** — Greenhouse and Lever public job board APIs, fetched per request, filtered to the Portland metro. `data/portland-jobs.json` is a generated snapshot used only if the boards are unreachable. |
+| Job → occupation matching | **Ours, and crude** — board postings carry no SOC codes, so we match on title-token overlap. Good enough to surface real roles; not semantic matching, and we don't claim it is. |
 | Growth-sector fallback | **Hardcoded** — `data/growth-sectors.json`, from QualityInfo.org Portland Metro data |
 | Cached API responses | `data/fixtures/` — served when `MOCK=1`, and as a silent fallback if a live call fails during the demo |
 
-Both live APIs require auth headers a browser can't send, which is the only
-reason there's a backend at all.
+O\*NET and CareerOneStop require auth headers a browser can't send, which is the
+only reason there's a backend at all. The job boards don't — Greenhouse's
+`boards-api.greenhouse.io/v1/boards/{token}/jobs` and Lever's
+`api.lever.co/v0/postings/{token}?mode=json` are both public and unauthenticated.
+
+Add an employer by appending one line to `SOURCES` in `lib/boards.js`.
 
 ## Layout
 
@@ -51,9 +56,10 @@ reason there's a backend at all.
 server.js                  zero-dependency node:http — static files + 4 routes
 lib/onet.js                O*NET client; normalizes to OUR shape (API.md)
 lib/careeronestop.js       skills-gap client; same rule
-lib/jobs.js                local SOC-code match against portland-jobs.json
+lib/boards.js              LIVE Greenhouse + Lever fetch, no auth needed
+lib/jobs.js                title-token match from occupation to open roles
 lib/fixtures.js            canned responses: dev mode + demo safety net
-data/portland-jobs.json    hand-assembled, disclosed
+data/portland-jobs.json    GENERATED snapshot (scripts/snapshot-jobs.mjs), offline fallback
 data/growth-sectors.json   hand-assembled, disclosed
 data/fixtures/*.json       normalized example responses
 public/index.html          one page, one input box

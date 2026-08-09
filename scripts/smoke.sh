@@ -26,7 +26,7 @@ check "POST /api/match" -X POST "$BASE/api/match" \
   -H 'content-type: application/json' \
   -d '{"text":"I managed ad campaigns and client relationships for 4 years"}'
 check "GET  /api/gap" "$BASE/api/gap?from=41-3011.00&to=13-1161.00"
-check "GET  /api/jobs  (expect a match)" "$BASE/api/jobs?code=13-1161.00"
-check "GET  /api/jobs  (expect fallback)" "$BASE/api/jobs?code=29-1141.00"
+check "GET  /api/jobs  (expect a match)" "$BASE/api/jobs?code=13-1161.00&title=Market%20Research%20Analysts%20and%20Marketing%20Specialists"
+check "GET  /api/jobs  (expect fallback)" "$BASE/api/jobs?code=29-1141.00&title=Registered%20Nurses"
 
 if [ "$fail" -eq 0 ]; then echo "all green"; else echo "SMOKE FAILED"; exit 1; fi

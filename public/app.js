@@ -122,7 +122,7 @@ async function onPickTarget(target) {
     // Independent calls — fire together, the demo clock is 90 seconds.
     const [gap, jobs] = await Promise.all([
       api(`/api/gap?from=${encodeURIComponent(matched.occupation.code)}&to=${encodeURIComponent(target.code)}`),
-      api(`/api/jobs?code=${encodeURIComponent(target.code)}`),
+      api(`/api/jobs?code=${encodeURIComponent(target.code)}&title=${encodeURIComponent(target.title)}`),
     ]);
     renderGap(gap, target);
     renderJobs(jobs);
@@ -156,9 +156,15 @@ function renderGap(gap, target) {
   show('step-gap');
 }
 
-function renderJobs({ matches, fallback }) {
+function renderJobs({ matches, fallback, live, boards }) {
   const list = clear('jobs');
   const fallbackBox = clear('jobs-fallback');
+
+  // Provenance, in the UI, every time — this is a live feed and we say so.
+  const provenance = $('jobs-provenance');
+  provenance.textContent = live
+    ? `Fetched live just now from ${boards} public employer job boards (Greenhouse + Lever).`
+    : 'Boards unreachable — showing our most recent saved pull.';
 
   if (matches.length) {
     hide('jobs-fallback');
@@ -172,7 +178,7 @@ function renderJobs({ matches, fallback }) {
 
         const meta = document.createElement('span');
         meta.className = 'job-meta';
-        meta.textContent = `${job.company} · ${job.location}`;
+        meta.textContent = `${job.company} · ${job.location}${job.remote ? ' · remote-eligible' : ''}`;
 
         node.append(link, meta);
       });

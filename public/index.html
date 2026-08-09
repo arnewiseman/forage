@@ -56,6 +56,7 @@
     <!-- STEP 4 — real open roles, or the honest dead end -->
     <section class="card hidden" id="step-jobs" aria-live="polite">
       <h2>Open in Portland right now</h2>
+      <p class="hint" id="jobs-provenance"></p>
       <ul class="jobs" id="jobs"></ul>
       <div class="hidden" id="jobs-fallback"></div>
     </section>
@@ -70,8 +71,10 @@
       Occupation matching and skill gaps are live
       <a href="https://services.onetcenter.org/">O*NET</a> and
       <a href="https://www.careeronestop.org/">CareerOneStop</a> calls.
-      The Portland job listings are a real dataset we pulled by hand from local employers'
-      public job boards — <strong>not a live feed</strong>.
+      Job listings are fetched live from Portland employers' public
+      <a href="https://developers.greenhouse.io/job-board.html">Greenhouse</a> and Lever
+      job boards. We match jobs to occupations on title keywords, which is rough —
+      treat these as leads, not a filtered shortlist.
     </p>
     <p class="disclosure">
       Built in two hours at the Claude Impact Portland hackathon.

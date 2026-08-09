@@ -108,10 +108,15 @@ const routes = {
     }
   },
 
+  // Live Greenhouse + Lever, both public and unauthenticated. Falls back to the
+  // committed snapshot if the boards are unreachable.
   'GET /api/jobs': async (req, res, url) => {
     const code = url.searchParams.get('code');
+    const title = url.searchParams.get('title');
     if (!code) return fail(res, 400, 'MISSING_PARAM', 'Need ?code= an occupation code.');
-    send(res, 200, await jobs.findForOccupation(code));
+    // Title drives the matching — board postings carry no SOC codes.
+    if (!title) return fail(res, 400, 'MISSING_PARAM', 'Need ?title= the occupation title.');
+    send(res, 200, await jobs.findForOccupation(code, title));
   },
 };
 
