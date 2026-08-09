@@ -1,0 +1,17 @@
+:root{
+  --radius-xs:3px; --radius-sm:5px; --radius-md:8px; --radius-lg:12px; --radius-xl:18px; --radius-pill:999px;
+
+  --border-width-hair:1px;
+  --border-width-solid:1.5px;
+  --border-width-heavy:2px;
+
+  /* Soft, warm-tinted elevation. Forage uses very little of this. */
+  --shadow-1:0 1px 2px rgba(22,33,28,.07);
+  --shadow-2:0 2px 10px -3px rgba(22,33,28,.14);
+  --shadow-3:0 12px 32px -12px rgba(22,33,28,.26);
+  /* Screen-print registration offset — the brand's signature "elevation". */
+  --shadow-print:3px 3px 0 var(--ink-900);
+  --shadow-print-fir:3px 3px 0 var(--fir-700);
+  --shadow-print-rose:3px 3px 0 var(--rose-600);
+  --shadow-inset-well:inset 0 1px 2px rgba(22,33,28,.10);
+}

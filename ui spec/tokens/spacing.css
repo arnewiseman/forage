@@ -1,0 +1,13 @@
+:root{
+  --space-3xs:2px; --space-2xs:4px; --space-xs:6px; --space-sm:8px; --space-md:12px;
+  --space-lg:16px; --space-xl:20px; --space-2xl:24px; --space-3xl:32px; --space-4xl:40px;
+  --space-5xl:48px; --space-6xl:64px; --space-7xl:80px; --space-8xl:96px;
+
+  --gutter-page:24px;
+  --measure-prose:64ch;
+  --width-content:1080px;
+  --width-narrow:680px;
+  --control-height-sm:32px;
+  --control-height-md:40px;
+  --control-height-lg:48px;
+}

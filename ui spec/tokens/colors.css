@@ -1,0 +1,60 @@
+:root{
+  /* --- Base palette: Pacific Northwest field guide --- */
+  /* Fir — the deep evergreen of the Cascades. Primary brand colour. */
+  --fir-900:#0F211A; --fir-800:#16311F; --fir-700:#1E3A2F; --fir-600:#2A5140; --fir-500:#3A6B54; --fir-400:#5B8E76; --fir-300:#8FB6A2; --fir-200:#C2D9CC; --fir-100:#E3EEE7; --fir-050:#F1F7F3;
+  /* Moss — softer understory green, used for growth / positive states. */
+  --moss-700:#3F6B36; --moss-500:#5C8F4E; --moss-300:#9CC08E; --moss-100:#E4EEDE;
+  /* Rose — Portland is the Rose City. Madder red, the single loud accent. */
+  --rose-800:#7E2430; --rose-700:#9B2E3B; --rose-600:#B23A48; --rose-500:#C6545F; --rose-300:#E4A3A9; --rose-100:#F8E4E5;
+  /* Hood — glacier slate blue off Mt. Hood. Informational / links. */
+  --hood-800:#2E4A5E; --hood-700:#3E6076; --hood-600:#527B93; --hood-400:#89AABD; --hood-200:#C4D6E0; --hood-100:#E6EFF4;
+  /* Amber — Willamette autumn. Warnings, highlights, "in progress". */
+  --amber-700:#A5661C; --amber-600:#C57F24; --amber-500:#D98E32; --amber-300:#EFC489; --amber-100:#FBEEDA;
+  /* Paper & ink — warm newsprint neutrals, never pure white or black. */
+  --paper-000:#FFFDF8; --paper-050:#FAF6EE; --paper-100:#F6F1E7; --paper-200:#EDE6D8; --paper-300:#DFD6C4; --paper-400:#C6BBA5;
+  --rain-600:#6E7A74; --rain-500:#8A9490; --rain-400:#A8B0AC;
+  --ink-900:#16211C; --ink-700:#2C3833; --ink-500:#4A5751;
+
+  /* --- Semantic aliases --- */
+  --surface-page:var(--paper-100);
+  --surface-card:var(--paper-000);
+  --surface-sunken:var(--paper-200);
+  --surface-inverse:var(--fir-700);
+  --surface-accent:var(--fir-050);
+  --surface-overlay:rgba(22,33,28,.44);
+
+  --text-body:var(--ink-700);
+  --text-strong:var(--ink-900);
+  --text-muted:var(--rain-600);
+  --text-inverse:var(--paper-050);
+  --text-link:var(--hood-700);
+  --text-link-hover:var(--hood-800);
+  --text-brand:var(--fir-700);
+
+  --border-hairline:var(--paper-300);
+  --border-default:var(--paper-400);
+  --border-strong:var(--ink-900);
+  --border-focus:var(--fir-500);
+
+  --action-primary-bg:var(--fir-700);
+  --action-primary-bg-hover:var(--fir-800);
+  --action-primary-bg-active:var(--fir-900);
+  --action-primary-fg:var(--paper-050);
+  --action-secondary-bg:var(--paper-000);
+  --action-secondary-fg:var(--fir-700);
+  --action-danger-bg:var(--rose-600);
+  --action-danger-fg:var(--paper-050);
+  --action-disabled-bg:var(--paper-200);
+  --action-disabled-fg:var(--rain-400);
+
+  --status-positive:var(--moss-700);
+  --status-positive-surface:var(--moss-100);
+  --status-caution:var(--amber-700);
+  --status-caution-surface:var(--amber-100);
+  --status-critical:var(--rose-700);
+  --status-critical-surface:var(--rose-100);
+  --status-info:var(--hood-700);
+  --status-info-surface:var(--hood-100);
+
+  --focus-ring:0 0 0 3px var(--fir-200);
+}

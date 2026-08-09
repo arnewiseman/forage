@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Core" subtitle="Button, IconButton, Icon, Badge, Tag, Card, Callout" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Core</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--paper-100)}.grp{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.stack{display:flex;flex-direction:column;gap:16px}.cap{font-family:var(--font-body);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, IconButton, Icon, Badge, Tag, Card, Callout } = window.ForageDesignSystem_98e604;
+
+function Demo(){return (<div className="stack">
+  <div className="grp">
+    <Button variant="primary" iconEnd="arrow-right">Find what transfers</Button>
+    <Button variant="secondary" iconStart="rotate-ccw">Start over</Button>
+    <Button variant="ghost">Skip</Button>
+    <Button variant="danger">Clear</Button>
+    <Button variant="link">Why this match?</Button>
+    <Button variant="primary" disabled>Disabled</Button>
+  </div>
+  <div className="grp">
+    <Button size="sm" variant="secondary">Small</Button>
+    <Button size="md" variant="secondary">Medium</Button>
+    <Button size="lg" variant="secondary">Large</Button>
+    <IconButton icon="bookmark" label="Save" variant="outline" />
+    <IconButton icon="share-2" label="Share" />
+    <IconButton icon="arrow-right" label="Next" variant="solid" />
+    <Icon name="compass" size={22} color="var(--fir-600)" />
+    <Icon name="sprout" size={22} color="var(--moss-500)" />
+    <Icon name="map-pin" size={22} color="var(--rose-600)" />
+  </div>
+  <div className="grp">
+    <Badge tone="brand">O*NET match</Badge><Badge tone="positive" icon="check">You have this</Badge>
+    <Badge tone="caution">Gap</Badge><Badge tone="critical">Closed</Badge><Badge tone="info">Hybrid</Badge><Badge tone="neutral">Contract</Badge>
+    <Tag tone="have" icon="check">Client relations</Tag><Tag tone="missing" icon="plus">SQL</Tag><Tag onClick={()=>{}} selected>Remote only</Tag><Tag onRemove={()=>{}}>Portland, OR</Tag>
+  </div>
+  <div className="grp" style={{alignItems:'stretch'}}>
+    <Card padding="sm" style={{flex:'1 1 0'}}><b>Default card</b><div style={{fontSize:13,color:'var(--text-muted)'}}>Hairline border, 8px radius</div></Card>
+    <Card variant="print" padding="sm" style={{flex:'1 1 0'}}><b>Print card</b><div style={{fontSize:13,color:'var(--text-muted)'}}>Ink border + 3px offset</div></Card>
+    <Card variant="inverse" padding="sm" style={{flex:'1 1 0'}}><b style={{color:'var(--paper-000)'}}>Inverse</b><div style={{fontSize:13}}>Fir green feature block</div></Card>
+  </div>
+  <Callout tone="disclosure">Occupation matching and skill gaps are live O*NET/CareerOneStop calls. The Portland job listings are a hand-assembled dataset — not a live feed.</Callout>
+</div>);}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

@@ -1,0 +1,27 @@
+:root{
+  --font-display:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;
+  --font-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --weight-regular:400; --weight-medium:500; --weight-semibold:600; --weight-bold:700; --weight-black:800;
+
+  /* Type ramp — 1.25 major-third-ish, tightened at the top for signage feel */
+  --size-display-xl:64px; --size-display-lg:48px; --size-display-md:36px;
+  --size-title-lg:28px; --size-title-md:22px; --size-title-sm:18px;
+  --size-body-lg:17px; --size-body-md:15px; --size-body-sm:13px;
+  --size-label:12px; --size-micro:11px;
+
+  --leading-tight:1.04; --leading-snug:1.18; --leading-normal:1.5; --leading-relaxed:1.62;
+
+  --tracking-display:-0.024em; --tracking-title:-0.014em; --tracking-body:0em;
+  --tracking-label:0.08em; --tracking-caps:0.14em;
+
+  /* Composite roles */
+  --type-display:var(--weight-bold) var(--size-display-lg)/var(--leading-tight) var(--font-display);
+  --type-title:var(--weight-bold) var(--size-title-lg)/var(--leading-snug) var(--font-display);
+  --type-subtitle:var(--weight-semibold) var(--size-title-sm)/var(--leading-snug) var(--font-display);
+  --type-body:var(--weight-regular) var(--size-body-md)/var(--leading-relaxed) var(--font-body);
+  --type-body-lg:var(--weight-regular) var(--size-body-lg)/var(--leading-relaxed) var(--font-body);
+  --type-label:var(--weight-bold) var(--size-label)/1.2 var(--font-body);
+  --type-mono:var(--weight-medium) var(--size-body-sm)/1.4 var(--font-mono);
+}

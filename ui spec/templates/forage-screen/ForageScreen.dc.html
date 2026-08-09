@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Forage screen" description="A blank Forage app screen: sticky header, step tracker, page frame and the disclosure block." -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#F6F1E7}</style></helmet>
+<div style="min-height:100vh;background:#F6F1E7;font-family:'Public Sans',system-ui,sans-serif;color:#2C3833">
+<header style="background:#FFFDF8;border-bottom:1px solid #DFD6C4;position:sticky;top:0;z-index:20">
+<div style="max-width:1080px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:16px">
+<span style="font-family:'Bricolage Grotesque','Public Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.03em;color:#1E3A2F;line-height:1">Forage<span style="color:#B23A48">.</span></span>
+<span style="width:1px;height:22px;background:#DFD6C4"></span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#6E7A74">Skills Bridge PDX</span>
+<span style="flex:1"></span>
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Badge" tone="brand" icon="map-pin" hint-size="130px,24px">Portland metro</x-import>
+</div>
+<div style="border-top:1px solid #DFD6C4;background:#FAF6EE" data-stepper-strip="{{ showStepper }}">
+<div style="max-width:1080px;margin:0 auto;padding:12px 24px">
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Stepper" steps="{{ steps }}" current="{{ currentStep }}" hint-size="100%,32px"></x-import>
+</div>
+</div>
+</header>
+<main style="max-width:1080px;margin:0 auto;padding:40px 24px 0">
+<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px">
+<div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#B23A48">Step 2 — your match</div>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:36px;line-height:1.06;letter-spacing:-0.024em;color:#16211C">Replace this with the screen title</h2>
+<p style="margin:0;font-size:17px;color:#6E7A74;max-width:60ch;line-height:1.55">One plain sentence saying what the person is looking at and where the numbers came from.</p>
+</div>
+<div style="display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start">
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Card" variant="print" padding="md" hint-size="380px,220px">
+<div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-0.014em;color:#16211C;margin-bottom:6px">Reference column</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#6E7A74">11-2011.00</div>
+<p style="margin:12px 0 0;font-size:14px;line-height:1.55">The narrow left column holds the fixed reference — the matched occupation, a summary, the source code. One print-shadowed card per screen, no more.</p>
+</x-import>
+<div style="display:flex;flex-direction:column;gap:12px">
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Card" padding="md" hint-size="100%,110px">
+<div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#16211C">Content row</div>
+<p style="margin:6px 0 0;font-size:14px;line-height:1.5;color:#2C3833">The wide right column is the reading column. Stack rows here at 12px gaps.</p>
+</x-import>
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Card" padding="md" hint-size="100%,110px">
+<div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#16211C">Content row</div>
+<p style="margin:6px 0 0;font-size:14px;line-height:1.5;color:#2C3833">Duplicate or delete rows as needed.</p>
+</x-import>
+</div>
+</div>
+<div style="margin-top:28px;display:flex;gap:12px">
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Button" variant="secondary" iconStart="arrow-left" hint-size="150px,40px">Back</x-import>
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Button" variant="primary" iconEnd="arrow-right" hint-size="170px,40px">Continue</x-import>
+</div>
+<div style="margin-top:28px" data-disclosure="{{ showDisclosure }}">
+<x-import component-from-global-scope="ForageDesignSystem_98e604.Callout" tone="disclosure" hint-size="100%,64px">Say here exactly which numbers are live API calls and which were assembled by hand, and when.</x-import>
+</div>
+</main>
+<footer style="border-top:1px solid #DFD6C4;background:#FFFDF8;margin-top:56px">
+<div style="max-width:1080px;margin:0 auto;padding:28px 24px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.03em;color:#1E3A2F">Forage<span style="color:#B23A48">.</span></span>
+<span style="font-size:13px;color:#6E7A74">Built for Portlanders between jobs. Free, no account, nothing saved.</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:860},&quot;currentStep&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:4,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Flow&quot;},&quot;showStepper&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Flow&quot;},&quot;showDisclosure&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.sync(); }
+  componentDidUpdate() { this.sync(); }
+  sync() {
+    const root = this.host || document;
+    const strip = root.querySelector('[data-stepper-strip]');
+    if (strip) strip.style.display = (this.props.showStepper ?? true) ? '' : 'none';
+    const disc = root.querySelector('[data-disclosure]');
+    if (disc) disc.style.display = (this.props.showDisclosure ?? true) ? '' : 'none';
+  }
+  renderVals() {
+    return {
+      steps: ["Describe", "Match", "Target", "Gap", "Roles"],
+      currentStep: this.props.currentStep ?? 1,
+      showStepper: this.props.showStepper ?? true,
+      showDisclosure: this.props.showDisclosure ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
