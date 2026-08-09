@@ -1,33 +1,312 @@
-/* BAREBONES ON PURPOSE — a design system is being built separately and will
-   replace this file. Do not grow it.
-   Everything here is either structural (the app is broken without it) or a
-   readability floor. All visual decisions belong in the design system.
+/* App layout. Loads AFTER forage-ds.css, which brings the design tokens, the
+ * global reset, and the fg-* component classes.
+ *
+ * Everything here is layout the design system doesn't cover: the React kit
+ * builds its shell (AppHeader, Page, SectionHead, AppFooter) from inline
+ * style={{...}} objects with no class names, so those are translated to
+ * classes here, values kept faithful to `ui spec/ui_kits/forage-app/AppShell.jsx`.
+ *
+ * Prefix: fga- (forage app) so it never collides with the design system's fg-.
+ */
 
-   Styling hooks the markup already provides:
-     ids       #step-input #step-match #step-gap #step-jobs #error #loading
-     classes   .card .masthead .tagline .hint .skills .related .related-btn
-               .related-title .related-overlap .gap-cols .have .missing .note
-               .jobs .job-meta .disclosure .error .loading .hidden          */
+/* Structural — app.js drives the whole step machine off this one rule. */
+.hidden { display: none !important; }
 
-/* Structural — the show/hide state machine in app.js depends on this. */
-.hidden { display: none; }
+/* --- header ------------------------------------------------------------- */
 
-/* Readability floor so the flow is testable before the design system lands. */
-body {
-  margin: 0 auto;
-  padding: 2rem 1.25rem;
-  max-width: 46rem;
-  font: 16px/1.5 system-ui, sans-serif;
+.fga-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper-000);
+  border-bottom: 1px solid var(--border-hairline);
 }
 
-.card { margin-bottom: 1.5rem; }
+.fga-header__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  height: 64px;
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: 0 var(--gutter-page);
+}
 
-textarea { width: 100%; padding: .5rem; font: inherit; }
+.fga-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fir-700);
+}
+.fga-wordmark--sm { font-size: 17px; }
+/* The rose full stop is the wordmark — it's the one loud mark in the brand. */
+.fga-wordmark__dot { color: var(--rose-600); }
 
-/* Adjacent-occupation picks are buttons; keep them readable as list rows. */
-.related-btn { display: block; width: 100%; text-align: left; font: inherit; }
-.related-title { display: block; font-weight: 600; }
+.fga-rule {
+  width: 1px;
+  height: 22px;
+  background: var(--border-hairline);
+}
 
-.job-meta { display: block; }
+.fga-subtitle {
+  font: var(--type-mono);
+  color: var(--text-muted);
+}
 
-.disclosure { font-size: .85rem; }
+.fga-spacer { flex: 1; }
+
+.fga-stepper-strip {
+  background: var(--paper-050);
+  border-top: 1px solid var(--border-hairline);
+}
+.fga-stepper-strip > div {
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: var(--space-md) var(--gutter-page);
+}
+
+/* --- page --------------------------------------------------------------- */
+
+.fga-page {
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: var(--space-4xl) var(--gutter-page) 0;
+}
+
+/* Steps are revealed one at a time; give them room to breathe apart. */
+.fga-step { margin-bottom: var(--space-5xl); }
+
+.fga-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ALL CAPS rose label above each section heading — brand rule, see readme §3. */
+.fga-eyebrow {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--size-label);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--rose-600);
+}
+
+.fga-section-head h2 {
+  font: var(--weight-bold) var(--size-display-md) / 1.06 var(--font-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.fga-lede {
+  font-size: var(--size-body-lg);
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+.fga-subhead {
+  font: var(--type-subtitle);
+  margin: var(--space-2xl) 0 var(--space-md);
+}
+.fga-subhead:first-of-type { margin-top: 0; }
+
+/* --- occupation match --------------------------------------------------- */
+
+.fga-occupation__title {
+  font: var(--weight-bold) var(--size-title-md) / var(--leading-snug) var(--font-display);
+  letter-spacing: var(--tracking-title);
+}
+/* O*NET codes are quoted verbatim in monospace — brand rule. */
+.fga-code {
+  font: var(--type-mono);
+  color: var(--text-muted);
+}
+.fga-occupation__desc {
+  margin-top: var(--space-sm);
+  max-width: var(--measure-prose);
+}
+
+/* --- generic lists ------------------------------------------------------ */
+
+.fga-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.fga-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.fga-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+}
+
+/* --- adjacent occupations (the click target that advances the flow) ------ */
+
+.fga-related__title {
+  display: block;
+  font: var(--weight-semibold) var(--size-body-lg) / var(--leading-snug) var(--font-display);
+  color: var(--text-strong);
+  margin-bottom: var(--space-2xs);
+}
+.fga-related__overlap {
+  display: block;
+  font-size: var(--size-body-md);
+  color: var(--text-muted);
+  line-height: var(--leading-normal);
+}
+.fga-related__cue {
+  display: block;
+  margin-top: var(--space-sm);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fir-600);
+}
+
+/* --- gap ---------------------------------------------------------------- */
+
+.fga-gap__note {
+  display: block;
+  font-size: var(--size-body-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-3xs);
+}
+
+/* --- jobs --------------------------------------------------------------- */
+
+.fga-job {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.fga-job:last-child { border-bottom: 0; }
+
+.fga-job__title {
+  font-weight: var(--weight-semibold);
+  font-size: var(--size-body-lg);
+}
+.fga-job__meta {
+  display: block;
+  font-size: var(--size-body-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-3xs);
+}
+
+.fga-provenance {
+  font: var(--type-mono);
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* --- footer ------------------------------------------------------------- */
+
+.fga-footer {
+  border-top: 1px solid var(--border-hairline);
+  background: var(--paper-000);
+  margin-top: var(--space-6xl);
+}
+.fga-footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xl);
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: 28px var(--gutter-page);
+}
+.fga-footer__note {
+  font-size: var(--size-body-sm);
+  color: var(--text-muted);
+}
+
+.fga-disclosure {
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: 0 var(--gutter-page) var(--space-3xl);
+  font-size: var(--size-body-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-normal);
+}
+.fga-disclosure p + p { margin-top: var(--space-sm); }
+
+/* --- status ------------------------------------------------------------- */
+
+.fga-loading {
+  font: var(--type-mono);
+  color: var(--text-muted);
+  padding: var(--space-md) 0;
+}
+
+/* PRD says no mobile optimization; this keeps it from being actively broken. */
+@media (max-width: 40rem) {
+  .fga-cols-2 { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .fga-section-head h2 { font-size: var(--size-title-lg); }
+  .fga-header__bar { gap: var(--space-sm); }
+}
+
+/* --- classes the design system doesn't cover ---------------------------- */
+
+/* Example chips under the input — fill the box, don't submit. */
+.fga-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0 var(--space-lg);
+}
+.fga-chips .fg-tag { text-align: left; }
+
+/* "You already have" is a tag cloud; nothing needs explaining. */
+.fga-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* "You'd need to add" carries the why, so each gets its own row. */
+.fga-gap__row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-md);
+}
+.fga-gap__row:last-child { margin-bottom: 0; }
+
+/* Growth sectors — the no-match fallback. */
+.fga-sector {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.fga-sector:last-child { border-bottom: 0; }
+.fga-sector__name {
+  display: block;
+  font-weight: var(--weight-semibold);
+  color: var(--text-strong);
+}
+.fga-sector__trend {
+  display: block;
+  font-size: var(--size-body-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-3xs);
+}
+
+.fga-resource {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-hairline);
+  font-size: var(--size-body-md);
+}

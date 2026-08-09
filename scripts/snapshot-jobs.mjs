@@ -20,8 +20,8 @@ const snapshot = {
   boards: `${boardsOk}/${boardsTried} reachable`,
   sources: SOURCES.map((s) => `${s.company} (${s.type})`),
   disclosure:
-    "Pulled from Greenhouse and Lever's public, unauthenticated job board APIs. " +
-    'Served live; this file is the offline fallback.',
+    "Pulled from Greenhouse, Lever, SmartRecruiters and Ashby's public, " +
+    'unauthenticated job board APIs. Served live; this file is the offline fallback.',
   jobs,
 };
 

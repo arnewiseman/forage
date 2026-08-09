@@ -1,33 +1,69 @@
 {
   "_README": [
-    "OWNER: Engineer B — hackathon clock 0:20–0:30.",
-    "Shown only when /api/jobs finds no local match. This is the no-dead-ends path.",
-    "REPLACE the trend strings with real figures from QualityInfo.org Portland Metro data.",
-    "The sector names are real NAICS sectors; the growth claims below are placeholders.",
-    "Target: 5–10 rows. Keep each trend to one sentence a person can repeat out loud.",
+    "OWNER: Engineer B. Shown only when /api/jobs finds no local match — the no-dead-ends path.",
+    "STATUS: real data. The placeholder TODO trends were replaced on 2026-08-08.",
     "",
-    "The `resource` block is a real org — verify the URL still loads, then drop the TODO."
+    "Every figure below comes from one primary source, retrieved directly:",
+    "Oregon Employment Department (QualityInfo.org), 'Industry Employment Projections, 2024-2034,",
+    "Clackamas, Multnomah, and Washington Counties', published December 18, 2025. Spreadsheet:",
+    "https://www.qualityinfo.org/documents/20118/37537/Portland%20Tri-County%20Industry%20Projections%202024-2034/8dd44f95-dd35-5255-0e17-86b562938864?version=1.0",
+    "Landing pages: https://www.qualityinfo.org/portland-metro and https://www.qualityinfo.org/projections",
+    "Narrative: https://www.qualityinfo.org/-/portland-tri-county-jobs-projected-to-increase-7-by-2034",
+    "",
+    "GEOGRAPHY NOTE: this is OED's Portland tri-county area (Clackamas, Multnomah, Washington) — the",
+    "geography QualityInfo publishes as 'Portland Metro'. It is not the 7-county Portland-Vancouver-",
+    "Hillsboro MSA (no Clark, Columbia, Yamhill or Skamania counties). Say 'Portland metro' in the demo.",
+    "Regionwide baseline from the same table: 1,065,200 jobs in 2024 to 1,142,600 in 2034, +77,400 (+7%).",
+    "",
+    "HONESTY CONTEXT for anyone demoing this: these are 10-year projections, not current conditions.",
+    "Portland metro nonfarm employment is currently FALLING — 1,235,200 in March 2025 to 1,202,900 in",
+    "March 2026 (about -32,000), per BLS Current Employment Statistics retrieved via FRED series",
+    "PORT941NAN (https://fred.stlouisfed.org/graph/fredgraph.csv?id=PORT941NAN). That is why every",
+    "trend string below is worded as 'projected' with the 2024-2034 window attached.",
+    "",
+    "No number here was estimated or rounded up beyond whole percentages taken from the source table.",
+    "The `resource` URL returned HTTP 200 on 2026-08-08 and its description matches what the page states."
   ],
   "sectors": [
     {
       "name": "Health Care & Social Assistance",
-      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
-      "source": "QualityInfo.org"
-    },
-    {
-      "name": "Construction",
-      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
-      "source": "QualityInfo.org"
+      "trend": "Projected to add about 18,700 jobs in the Portland metro between 2024 and 2034, a 14% increase — roughly double the region's projected 7% growth overall.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
     },
     {
       "name": "Professional & Business Services",
-      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
-      "source": "QualityInfo.org"
+      "trend": "Projected to add about 17,300 jobs in the Portland metro between 2024 and 2034 (11%), with professional and technical services accounting for 11,100 of that gain.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
+    },
+    {
+      "name": "Leisure & Hospitality",
+      "trend": "Projected to add about 9,500 jobs in the Portland metro between 2024 and 2034, a 10% increase, most of it in food services and accommodation.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
+    },
+    {
+      "name": "Construction",
+      "trend": "Projected to grow 11% in the Portland metro between 2024 and 2034, adding about 6,300 jobs, of which 4,100 are with specialty trade contractors.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
+    },
+    {
+      "name": "Transportation, Warehousing & Utilities",
+      "trend": "Projected to add about 4,200 jobs in the Portland metro between 2024 and 2034 (9%), including 1,300 more courier and messenger jobs and 1,100 more in warehousing and storage.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
+    },
+    {
+      "name": "Information",
+      "trend": "Projected to grow 9% in the Portland metro between 2024 and 2034, adding about 1,900 jobs, with software publishers alone accounting for 1,200 of them.",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
+    },
+    {
+      "name": "Architectural & Engineering Services",
+      "trend": "Projected to grow 23% in the Portland metro between 2024 and 2034, adding about 3,000 jobs — the fastest projected growth rate of any industry line in the region's projections table (it is counted within professional and business services above).",
+      "source": "Oregon Employment Department, QualityInfo.org — Portland Tri-County Industry Employment Projections 2024-2034 (published Dec. 18, 2025)"
     }
   ],
   "resource": {
     "name": "WorkSource Oregon",
     "url": "https://worksourceoregon.org/",
-    "description": "Free state-run career counseling, training referrals, and in-person centers across the Portland metro."
+    "description": "Free state-run job help: iMatchSkills job matching, job-search workshops, apprenticeship and veterans services, and unemployment insurance support — plus in-person centers you can find on the site's WorkSource center map."
   }
 }

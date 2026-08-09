@@ -3,84 +3,173 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Skills Bridge PDX — what your work transfers to</title>
-  <meta name="description" content="Describe the job you did. See what it transfers to, the gap to close, and open Portland roles.">
+  <title>Forage — Skills Bridge PDX</title>
+  <meta name="description" content="Type what you did in plain English. See the occupations it maps to, the one gap to close, and roles open in Portland right now.">
+  <!-- Design system first (tokens + reset + fg-* components), app layout second. -->
+  <link rel="stylesheet" href="/forage-ds.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="masthead">
-    <h1>Skills Bridge PDX</h1>
-    <p class="tagline">Describe the job you did. Find out what it actually transfers to.</p>
-  </header>
 
-  <main>
-    <!-- STEP 1 — the only input in the entire app -->
-    <section class="card" id="step-input">
-      <form id="job-form">
-        <label for="job-text">What did you do at work?</label>
-        <p class="hint">Plain English. No resume, no jargon. A couple of sentences is plenty.</p>
-        <textarea id="job-text" name="text" rows="4"
-          placeholder="I managed ad campaigns and client relationships for 4 years"></textarea>
-        <button type="submit" id="submit-btn">Find what transfers</button>
-      </form>
-    </section>
+<header class="fga-header">
+  <div class="fga-header__bar">
+    <span class="fga-wordmark">Forage<span class="fga-wordmark__dot">.</span></span>
+    <span class="fga-rule"></span>
+    <span class="fga-subtitle">Skills Bridge PDX</span>
+    <span class="fga-spacer"></span>
+    <span class="fg-badge fg-badge--brand">Portland metro</span>
+  </div>
 
-    <!-- STEP 2 — matched occupation + its skills + adjacent occupations -->
-    <section class="card hidden" id="step-match" aria-live="polite">
-      <h2>Closest match to what you described</h2>
-      <div id="occupation"></div>
-
-      <h3>Skills this work is built on</h3>
-      <ul class="skills" id="skills"></ul>
-
-      <h3>Where these skills already transfer</h3>
-      <p class="hint">Pick one to see exactly what stands between you and it.</p>
-      <ul class="related" id="related"></ul>
-    </section>
-
-    <!-- STEP 3 — the gap -->
-    <section class="card hidden" id="step-gap" aria-live="polite">
-      <h2 id="gap-heading">Your gap</h2>
-      <div class="gap-cols">
-        <div>
-          <h3 class="have">You already have</h3>
-          <ul id="gap-have"></ul>
+  <!-- Stepper marks progress. app.js calls setStep() as the flow advances. -->
+  <div class="fga-stepper-strip">
+    <div>
+      <div class="fg-stepper fg-stepper--compact" id="stepper">
+        <div class="fg-stepper__step fg-stepper__step--current" aria-current="step">
+          <span class="fg-stepper__mark">1</span>
+          <span class="fg-stepper__text"><span class="fg-stepper__label">Describe</span></span>
         </div>
-        <div>
-          <h3 class="missing">You'd need to add</h3>
-          <ul id="gap-missing"></ul>
+        <span class="fg-stepper__line"></span>
+        <div class="fg-stepper__step">
+          <span class="fg-stepper__mark">2</span>
+          <span class="fg-stepper__text"><span class="fg-stepper__label">Match</span></span>
+        </div>
+        <span class="fg-stepper__line"></span>
+        <div class="fg-stepper__step">
+          <span class="fg-stepper__mark">3</span>
+          <span class="fg-stepper__text"><span class="fg-stepper__label">Gap</span></span>
+        </div>
+        <span class="fg-stepper__line"></span>
+        <div class="fg-stepper__step">
+          <span class="fg-stepper__mark">4</span>
+          <span class="fg-stepper__text"><span class="fg-stepper__label">Roles</span></span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</header>
 
-    <!-- STEP 4 — real open roles, or the honest dead end -->
-    <section class="card hidden" id="step-jobs" aria-live="polite">
+<main class="fga-page">
+
+  <!-- STEP 1 — the only input in the entire app -->
+  <section class="fga-step" id="step-input">
+    <div class="fga-section-head">
+      <div class="fga-eyebrow">Step 1 — describe</div>
+      <h2>Your job already transfers. Here is where.</h2>
+      <p class="fga-lede">
+        Type what you did in plain English. We will name the occupations it maps to,
+        the gap to close, and the roles open in Portland right now.
+      </p>
+    </div>
+
+    <div class="fg-card fg-card--print fg-card--pad-md">
+      <form id="job-form">
+        <div class="fg-field">
+          <label class="fg-field__label" for="job-text">What did you do at work?</label>
+          <textarea class="fg-input fg-textarea" id="job-text" name="text" rows="4"
+            placeholder="I managed ad campaigns and client relationships for 4 years"></textarea>
+          <div class="fg-field__hint">No resume, no jargon. A couple of sentences is plenty.</div>
+        </div>
+        <div class="fga-chips" id="examples">
+          <button type="button" class="fg-tag fg-tag--clickable">I managed ad campaigns and client relationships for 4 years</button>
+          <button type="button" class="fg-tag fg-tag--clickable">I was a registered nurse on a hospital floor</button>
+          <button type="button" class="fg-tag fg-tag--clickable">I drove a delivery truck and handled warehouse inventory</button>
+        </div>
+        <button type="submit" class="fg-btn fg-btn--primary fg-btn--lg" id="submit-btn">Find what transfers</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- STEP 2 — matched occupation + skills + adjacent occupations -->
+  <section class="fga-step hidden" id="step-match" aria-live="polite">
+    <div class="fga-section-head">
+      <div class="fga-eyebrow">Step 2 — your match</div>
+      <h2>Closest match to what you described</h2>
+    </div>
+
+    <div class="fg-card fg-card--print fg-card--pad-md" id="occupation"></div>
+
+    <h3 class="fga-subhead">Skills this work is built on</h3>
+    <div class="fga-grid" id="skills"></div>
+
+    <h3 class="fga-subhead">Where these skills already transfer</h3>
+    <p class="fga-lede">Pick one to see exactly what stands between you and it.</p>
+    <div class="fga-list" id="related"></div>
+  </section>
+
+  <!-- STEP 3 — the gap -->
+  <section class="fga-step hidden" id="step-gap" aria-live="polite">
+    <div class="fga-section-head">
+      <div class="fga-eyebrow">Step 3 — the gap</div>
+      <h2 id="gap-heading">Your gap</h2>
+    </div>
+
+    <div class="fga-cols-2">
+      <div class="fg-card fg-card--accent fg-card--pad-md">
+        <h3 class="fga-subhead">You already have</h3>
+        <div class="fga-tags" id="gap-have"></div>
+      </div>
+      <div class="fg-card fg-card--pad-md">
+        <h3 class="fga-subhead">You'd need to add</h3>
+        <div class="fga-list" id="gap-missing"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 — real open roles, or the honest dead end -->
+  <section class="fga-step hidden" id="step-jobs" aria-live="polite">
+    <div class="fga-section-head">
+      <div class="fga-eyebrow">Step 4 — open roles</div>
       <h2>Open in Portland right now</h2>
-      <p class="hint" id="jobs-provenance"></p>
-      <ul class="jobs" id="jobs"></ul>
+    </div>
+
+    <p class="fga-provenance" id="jobs-provenance"></p>
+    <div class="fg-card fg-card--pad-md" id="jobs-card">
+      <ul class="fga-list" id="jobs"></ul>
       <div class="hidden" id="jobs-fallback"></div>
-    </section>
+    </div>
+  </section>
 
-    <p class="error hidden" id="error" role="alert"></p>
-    <p class="loading hidden" id="loading">Working…</p>
-  </main>
+  <div class="fg-callout fg-callout--critical hidden" id="error" role="alert"></div>
+  <p class="fga-loading hidden" id="loading">Working…</p>
 
-  <!-- Disclosure lives in the UI itself, not just the demo script. -->
-  <footer>
-    <p class="disclosure">
-      Occupations, skills and the gap come from the U.S. Department of Labor's
-      <a href="https://www.onetcenter.org/database.html">O*NET database</a> (public domain,
-      release 29.1), queried locally. Job listings are fetched live from Portland employers'
-      public <a href="https://developers.greenhouse.io/job-board.html">Greenhouse</a> and Lever
-      job boards. We match jobs to occupations on title keywords, which is rough —
-      treat these as leads, not a filtered shortlist.
-    </p>
-    <p class="disclosure">
-      Built in two hours at the Claude Impact Portland hackathon.
-      <a href="https://github.com/arnewiseman/forage">Source</a>.
-    </p>
-  </footer>
+</main>
 
-  <script src="/app.js" type="module"></script>
+<!-- Disclosure lives in the UI itself, not just the demo script. -->
+<div class="fga-disclosure">
+  <div class="fg-callout fg-callout--disclosure">
+    <div class="fg-callout__body">
+      <div class="fg-callout__title">What is live and what is not</div>
+      <p>
+        Occupations, skills and the gap come from the U.S. Department of Labor's
+        <a href="https://www.onetcenter.org/database.html">O*NET database</a>
+        (public domain, release 29.1), queried locally in your browser.
+        Job listings are fetched live from Portland employers' public
+        <a href="https://developers.greenhouse.io/job-board.html">Greenhouse</a>,
+        Lever, SmartRecruiters and Ashby job boards.
+        We match jobs to occupations on title keywords, which is rough — treat these
+        as leads, not a filtered shortlist.
+      </p>
+      <p>
+        Growth-sector figures are Oregon Employment Department projections for
+        2024–2034, published on <a href="https://www.qualityinfo.org/">QualityInfo.org</a>.
+        Those are projections: Portland metro employment is currently falling.
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer class="fga-footer">
+  <div class="fga-footer__bar">
+    <span class="fga-wordmark fga-wordmark--sm">Forage<span class="fga-wordmark__dot">.</span></span>
+    <span class="fga-footer__note">Built for Portlanders between jobs. Free, no account, nothing saved.</span>
+    <span class="fga-spacer"></span>
+    <a href="https://worksourceoregon.org/">WorkSource Oregon</a>
+    <a href="https://www.onetcenter.org/">O*NET</a>
+    <a href="https://www.qualityinfo.org/">QualityInfo</a>
+    <a href="https://github.com/arnewiseman/forage">Source</a>
+  </div>
+</footer>
+
+<script src="/app.js" type="module"></script>
 </body>
 </html>

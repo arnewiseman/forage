@@ -123,11 +123,17 @@ const routes = {
 
 // --- static files ---------------------------------------------------------
 
+// The browser now imports lib/ and fetches data/ directly (that's what makes
+// the static build possible), so dev has to serve them from the repo root the
+// same way the static host will.
+const ROOT_SERVED = ['/lib/', '/data/'];
+
 async function serveStatic(req, res, url) {
   const rel = url.pathname === '/' ? 'index.html' : url.pathname.slice(1);
-  // normalize() collapses ../ before we join, so a crafted path can't escape /public.
-  const path = join(PUBLIC_DIR, normalize(rel));
-  if (!path.startsWith(PUBLIC_DIR)) return fail(res, 403, 'FORBIDDEN', 'Nope.');
+  const base = ROOT_SERVED.some((p) => url.pathname.startsWith(p)) ? ROOT : PUBLIC_DIR;
+  // normalize() collapses ../ before we join, so a crafted path can't escape base.
+  const path = join(base, normalize(rel));
+  if (!path.startsWith(base)) return fail(res, 403, 'FORBIDDEN', 'Nope.');
 
   try {
     const file = await readFile(path);

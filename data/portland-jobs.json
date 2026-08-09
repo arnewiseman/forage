@@ -1,14 +1,38 @@
 {
   "_README": "GENERATED — do not hand-edit. Run: node scripts/snapshot-jobs.mjs",
   "pulledAt": "2026-08-09",
-  "boards": "6/6 reachable",
+  "boards": "30/30 reachable",
   "sources": [
     "New Relic (greenhouse)",
     "Vacasa (greenhouse)",
     "Airship (greenhouse)",
     "Jama Software (greenhouse)",
     "ZoomInfo (greenhouse)",
-    "Smarsh (lever)"
+    "Smarsh (lever)",
+    "Prophetic (ashby)",
+    "Headlands Research (greenhouse)",
+    "Town & Country Animal Hospital (greenhouse)",
+    "Heartflow (greenhouse)",
+    "Affect (greenhouse)",
+    "Connected Home Health & Hospice (smartrecruiters)",
+    "Tenderly Hospice (smartrecruiters)",
+    "Trinitas Healthcare Staffing (smartrecruiters)",
+    "K.A. Recruiting (smartrecruiters)",
+    "Dungarvin (smartrecruiters)",
+    "Ambient Enterprises (Johnson Barrow) (greenhouse)",
+    "MG Properties (greenhouse)",
+    "Rexel / Platt Electric (smartrecruiters)",
+    "Terraphase Engineering (greenhouse)",
+    "Perry Ellis International (greenhouse)",
+    "Coffman Engineers (smartrecruiters)",
+    "Fortune Brands (smartrecruiters)",
+    "Oregon Army National Guard (smartrecruiters)",
+    "OHSU Foundation (greenhouse)",
+    "Aprio (lever)",
+    "Mercer Advisors (greenhouse)",
+    "Sur La Table (CSC Generation) (lever)",
+    "Beauty Barrage (lever)",
+    "Omada (ashby)"
   ],
   "disclosure": "Pulled from Greenhouse and Lever's public, unauthenticated job board APIs. Served live; this file is the offline fallback.",
   "jobs": [
@@ -35,6 +59,138 @@
       "remote": false
     },
     {
+      "id": "gh-ohsufoundation-5372024008",
+      "title": "Assistant Director of Prospect Management (Temporary)",
+      "company": "Oregon Health & Science University Foundation",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/ohsufoundation/jobs/5372024008",
+      "postedAt": "2026-07-27",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-ohsufoundation-5371971008",
+      "title": "Assistant Director of Prospect Research and Identification (Temporary)",
+      "company": "Oregon Health & Science University Foundation",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/ohsufoundation/jobs/5371971008",
+      "postedAt": "2026-07-27",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-ohsufoundation-5236367008",
+      "title": "Associate Director of Development",
+      "company": "Oregon Health & Science University Foundation",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/ohsufoundation/jobs/5236367008",
+      "postedAt": "2026-06-01",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-townncountryvet-4239019009",
+      "title": "Associate Veterinarian",
+      "company": "Town & Country Animal Hospital",
+      "location": "Town & Country Animal Hospital - Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/townncountryvet/jobs/4239019009",
+      "postedAt": "2026-05-04",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Town & Country Animal Hospital - Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "lv-Aprio-06819418-64a3-46d4-bb61-14a57430935e",
+      "title": "Audit Associate",
+      "company": "Aprio",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/Aprio/06819418-64a3-46d4-bb61-14a57430935e",
+      "postedAt": "2026-06-25",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000141780009",
+      "company": "Rexel / Platt Electric",
+      "title": "Branch Driver",
+      "location": "Central Point, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000141780009",
+      "postedAt": "2026-08-05",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Central Point, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000140703519",
+      "company": "Rexel / Platt Electric",
+      "title": "Branch Driver",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000140703519",
+      "postedAt": "2026-07-30",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000138948279",
+      "company": "Rexel / Platt Electric",
+      "title": "Branch Driver",
+      "location": "Hermiston, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000138948279",
+      "postedAt": "2026-07-21",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Hermiston, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000138698950",
+      "company": "Rexel / Platt Electric",
+      "title": "Branch Driver",
+      "location": "Bend, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000138698950",
+      "postedAt": "2026-07-20",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Bend, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "lv-beautybarrage-06dbdf0d-51dc-47b4-ac7b-2d066543195e",
+      "title": "Brand Market Specialist - Medford, OR",
+      "company": "Beauty Barrage",
+      "location": "Medford, OR",
+      "url": "https://jobs.lever.co/beautybarrage/06dbdf0d-51dc-47b4-ac7b-2d066543195e",
+      "postedAt": "2026-03-23",
+      "source": "Lever public postings API",
+      "locationRaw": "Medford, OR",
+      "remote": false
+    },
+    {
+      "id": "lv-beautybarrage-1ac2199b-336b-4f5c-a20f-e21b3a3704ea",
+      "title": "Brand Market Specialist - Portland, OR",
+      "company": "Beauty Barrage",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/beautybarrage/1ac2199b-336b-4f5c-a20f-e21b3a3704ea",
+      "postedAt": "2024-10-10",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "lv-beautybarrage-e0e172d8-901f-4a46-9208-f60fa1dac886",
+      "title": "Brand Specialist - Portland, OR",
+      "company": "Beauty Barrage",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/beautybarrage/e0e172d8-901f-4a46-9208-f60fa1dac886",
+      "postedAt": "2025-03-08",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8649156002",
       "title": "Business Consultant II, GTM",
       "company": "ZoomInfo Technologies LLC",
@@ -57,6 +213,127 @@
       "remote": false
     },
     {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869590",
+      "company": "Oregon Army National Guard",
+      "title": "Chemical Operations Specialist- 74D - Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869590",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-heartflowinc-6092646004",
+      "title": "Clinical Field Specialist, CT - Pacific Northwest",
+      "company": "Heartflow",
+      "location": "Portland, Oregon (+1 other location)",
+      "url": "https://job-boards.greenhouse.io/heartflowinc/jobs/6092646004",
+      "postedAt": "2026-06-17",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Seattle, Washington; Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "sr-trinitashcs-91183764",
+      "company": "Trinitas Healthcare Staffing",
+      "title": "Clinical Nurse Specialist - Cardiovascular",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/trinitashcs/91183764",
+      "postedAt": "2016-04-05",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-trinitashcs-91183692",
+      "company": "Trinitas Healthcare Staffing",
+      "title": "Clinical Nurse Specialist - PeriOp",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/trinitashcs/91183692",
+      "postedAt": "2016-04-05",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-headlandsresearch-4234648009",
+      "title": "Clinical Research Assistant Opportunities – Multiple Locations Nationwide",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon (+26 other locations)",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4234648009",
+      "postedAt": "2026-04-28",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Atlanta, Georgia; Baltimore, Maryland; Bellingham, Washington; Brownsville, Texas; Chesterfield, Missouri; Detroit, Michigan; El Paso, Texas; Escondido, California; Grand Rapids, Michigan; Kelowna, British Columbia; Lake Worth, Florida; Lincoln, California; Maplewood, Minnesota; Myrtle Beach, South Carolina; Orlando, Florida; Plymouth, Massachusetts; Portland, Oregon; Richmond, British Columbia; Riverside, California; Rolling Hills Estates, California; Sacramento, California; San Diego, California; San Juan, Puerto Rico; Scottsdale, Arizona; Springfield, Missouri; Toronto, Ontario; Wilmington, North Carolina",
+      "remote": false
+    },
+    {
+      "id": "gh-headlandsresearch-4306800009",
+      "title": "Clinical Research Coordinator I, II, or III",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4306800009",
+      "postedAt": "2026-07-06",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-headlandsresearch-4194529009",
+      "title": "Clinical Research Coordinator I/II/III Opportunities – Multiple Locations Nationwide",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon (+26 other locations)",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4194529009",
+      "postedAt": "2026-04-27",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Atlanta, Georgia; Baltimore, Maryland; Bellingham, Washington; Brownsville, Texas; Chesterfield, Missouri; Detroit, Michigan; El Paso, Texas; Escondido, California; Grand Rapids, Michigan; Kelowna, British Columbia; Lake Worth, Florida; Lincoln, California; Maplewood, Minnesota; Myrtle Beach, South Carolina; Orlando, Florida; Plymouth, Massachusetts; Portland, Oregon; Richmond, British Columbia; Riverside, California; Rolling Hills Estates, California; Sacramento, California; San Diego, California; San Juan, Puerto Rico; Scottsdale, Arizona; Springfield, Missouri; Toronto, Ontario; Wilmington, North Carolina",
+      "remote": false
+    },
+    {
+      "id": "ab-prophetic-technologies-63ff3504-d472-4d37-9f68-5e6c7e17b2c2",
+      "title": "Content Marketing Manager",
+      "company": "Prophetic",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/63ff3504-d472-4d37-9f68-5e6c7e17b2c2",
+      "postedAt": "2026-06-24",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5290786008",
+      "title": "Controls Sales Engineer",
+      "company": "Ambient Enterprises",
+      "location": "Portland",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5290786008",
+      "postedAt": "2026-07-02",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000139156522",
+      "company": "Rexel / Platt Electric",
+      "title": "Counter Sales Representative",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000139156522",
+      "postedAt": "2026-07-22",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-REXEL1-744000140984909",
+      "company": "Rexel / Platt Electric",
+      "title": "Credit Manager",
+      "location": "Beaverton, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000140984909",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Beaverton, OR, United States",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8569723002",
       "title": "Customer Solutions Analyst II",
       "company": "ZoomInfo Technologies LLC",
@@ -65,6 +342,17 @@
       "postedAt": "2026-06-10",
       "source": "Greenhouse public job board API",
       "locationRaw": "Bethesda, Maryland, United States; Vancouver, Washington, United States; Waltham, Massachusetts, United States",
+      "remote": false
+    },
+    {
+      "id": "ab-prophetic-technologies-a41547fa-de4e-444b-8207-52e40caf9554",
+      "title": "Customer Success Manager",
+      "company": "Prophetic",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/a41547fa-de4e-444b-8207-52e40caf9554",
+      "postedAt": "2026-06-30",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
       "remote": false
     },
     {
@@ -101,6 +389,72 @@
       "remote": false
     },
     {
+      "id": "gh-perryellisinternational-4700311006",
+      "title": "Design Assistant- Apparel",
+      "company": "Perry Ellis International",
+      "location": "Portland, Oregon, United States",
+      "url": "https://job-boards.greenhouse.io/perryellisinternational/jobs/4700311006",
+      "postedAt": "2026-08-07",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141003119",
+      "company": "Dungarvin",
+      "title": "Direct Support Professional (DSP) - Community Connections Program",
+      "location": "Eugene, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141003119",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Eugene, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141976550",
+      "company": "Dungarvin",
+      "title": "Direct Support Professional (DSP) / Caregiver",
+      "location": "Vancouver, WA, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141976550",
+      "postedAt": "2026-08-06",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Vancouver, WA, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141003369",
+      "company": "Dungarvin",
+      "title": "Direct Support Professional (DSP) / Caregiver",
+      "location": "Eugene, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141003369",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Eugene, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141003579",
+      "company": "Dungarvin",
+      "title": "Direct Support Professional / Caregiver - Float Staff",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141003579",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000140988109",
+      "company": "Dungarvin",
+      "title": "Direct Support Professional / Caregiver - Float Staff",
+      "location": "Eugene, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000140988109",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Eugene, OR, United States",
+      "remote": false
+    },
+    {
       "id": "gh-newrelic-5368778008",
       "title": "Director, Field Marketing - Americas",
       "company": "New Relic",
@@ -120,6 +474,72 @@
       "postedAt": "2026-07-07",
       "source": "Greenhouse public job board API",
       "locationRaw": "Arlington, Virginia, USA; Charlotte, North Carolina, USA; Chicago, Illinois, USA; Dallas, Texas, USA; Detroit, Michigan, USA; Houston, Texas, USA; Phoenix, Arizona, USA; Portland, Oregon, USA",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5162235008",
+      "title": "Engineering Sales Manager",
+      "company": "Ambient Enterprises",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5162235008",
+      "postedAt": "2026-03-23",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-terraphaseengineeringinc-4120830009",
+      "title": "Environmental Engineer/Scientist (Stormwater)",
+      "company": "Terraphase Engineering Inc",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/terraphaseengineeringinc/jobs/4120830009",
+      "postedAt": "2026-02-09",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "sr-CoffmanEngineersInc-744000140339839",
+      "company": "Coffman Engineers",
+      "title": "Fire Protection Engineer (8+ years)",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/CoffmanEngineersInc/744000140339839",
+      "postedAt": "2026-07-28",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869429",
+      "company": "Oregon Army National Guard",
+      "title": "Food Service Specialist- 92G- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869429",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "ab-prophetic-technologies-dd39fe44-d924-4b82-82ca-12d77f5c0921",
+      "title": "Full Stack Software Engineer (Mid-Sr.)",
+      "company": "Prophetic",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/dd39fe44-d924-4b82-82ca-12d77f5c0921",
+      "postedAt": "2026-06-24",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "sr-TenderlyHospice-743999826393373",
+      "company": "Tenderly Hospice",
+      "title": "Full time Hospice Aide/ CNA",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/TenderlyHospice/743999826393373",
+      "postedAt": "2022-05-13",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
       "remote": false
     },
     {
@@ -145,6 +565,72 @@
       "remote": false
     },
     {
+      "id": "lv-cscgeneration-2-259d2b2e-7894-4d88-8f6e-eacbc6d50670",
+      "title": "General Manager (Sur La Table)",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/cscgeneration-2/259d2b2e-7894-4d88-8f6e-eacbc6d50670",
+      "postedAt": "2026-03-24",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "sr-KARecruitingInc-80232429",
+      "company": "K.A. Recruiting",
+      "title": "Geriatric Psych Nurse Practitioner (30 minutes from Portland, Oregon)",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/KARecruitingInc/80232429",
+      "postedAt": "2014-11-24",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869495",
+      "company": "Oregon Army National Guard",
+      "title": "Health Care Specialist- 68W- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869495",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-ConnectedHomeHealthHospice-743999660528106",
+      "company": "Connected Home Health & Hospice",
+      "title": "Home Health & Hospice Nurses",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/ConnectedHomeHealthHospice/743999660528106",
+      "postedAt": "2017-09-28",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-ConnectedHomeHealthHospice-743999726372583",
+      "company": "Connected Home Health & Hospice",
+      "title": "Home Health Registered Nurse (RN)",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/ConnectedHomeHealthHospice/743999726372583",
+      "postedAt": "2020-12-04",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-TenderlyHospice-743999820574902",
+      "company": "Tenderly Hospice",
+      "title": "Hospice RN Case Manager",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/TenderlyHospice/743999820574902",
+      "postedAt": "2022-04-19",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8636188002",
       "title": "HR Advisor III",
       "company": "ZoomInfo Technologies LLC",
@@ -156,6 +642,83 @@
       "remote": false
     },
     {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869203",
+      "company": "Oregon Army National Guard",
+      "title": "Human Resources Specialist - 42A- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869203",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-4511928008",
+      "title": "HVAC Service Technician - Johnson Barrow",
+      "company": "Ambient Enterprises",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/4511928008",
+      "postedAt": "2025-09-26",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869048",
+      "company": "Oregon Army National Guard",
+      "title": "Infantryman - Management Training 11B- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869048",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869016",
+      "company": "Oregon Army National Guard",
+      "title": "INFORMATION TECHNOLOGY SPECIALIST- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869016",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5218123008",
+      "title": "Inside Sales Associate, Parts - Ambient HVAC Supply",
+      "company": "Ambient Enterprises",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5218123008",
+      "postedAt": "2026-05-12",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5284720008",
+      "title": "Inside Sales Engineer- Johnson Barrow",
+      "company": "Ambient Enterprises",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5284720008",
+      "postedAt": "2026-06-26",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5103754008",
+      "title": "Inside Sales Engineer, Air Distribution - Johnson Barrow",
+      "company": "Ambient Enterprises",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5103754008",
+      "postedAt": "2026-01-30",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8622937002",
       "title": "Integrations Support Specialist I",
       "company": "ZoomInfo Technologies LLC",
@@ -164,6 +727,61 @@
       "postedAt": "2026-07-10",
       "source": "Greenhouse public job board API",
       "locationRaw": "Vancouver, Washington, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-townncountryvet-4239021009",
+      "title": "Lead Veterinarian / Medical Director",
+      "company": "Town & Country Animal Hospital",
+      "location": "Town & Country Animal Hospital - Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/townncountryvet/jobs/4239021009",
+      "postedAt": "2026-05-04",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Town & Country Animal Hospital - Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-mgproperties-5148300007",
+      "title": "Leasing Consultant - Gresham, OR",
+      "company": "MG Properties",
+      "location": "Gresham, OR",
+      "url": "https://job-boards.greenhouse.io/mgproperties/jobs/5148300007",
+      "postedAt": "2026-08-03",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Gresham, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-mgproperties-5192646007",
+      "title": "Maintenance Supervisor- Emerald Place",
+      "company": "MG Properties",
+      "location": "Beaverton, OR",
+      "url": "https://job-boards.greenhouse.io/mgproperties/jobs/5192646007",
+      "postedAt": "2026-07-21",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Beaverton, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-mgproperties-5151509007",
+      "title": "Maintenance Technician - Parkside",
+      "company": "MG Properties",
+      "location": "Gresham, OR",
+      "url": "https://job-boards.greenhouse.io/mgproperties/jobs/5151509007",
+      "postedAt": "2026-06-23",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Gresham, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-mgproperties-5163866007",
+      "title": "Maintenance Technician- Tupelo Alley",
+      "company": "MG Properties",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/mgproperties/jobs/5163866007",
+      "postedAt": "2026-06-12",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
       "remote": false
     },
     {
@@ -189,6 +807,105 @@
       "remote": false
     },
     {
+      "id": "gh-ohsufoundation-5268598008",
+      "title": "Managing Senior Director of Prospect Development",
+      "company": "Oregon Health & Science University Foundation",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/ohsufoundation/jobs/5268598008",
+      "postedAt": "2026-06-17",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "sr-CoffmanEngineersInc-744000139354399",
+      "company": "Coffman Engineers",
+      "title": "Marketing Specialist (3-5 years)",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/CoffmanEngineersInc/744000139354399",
+      "postedAt": "2026-07-23",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-perryellisinternational-4676766006",
+      "title": "Merchandising Operations Coordinator",
+      "company": "Perry Ellis International",
+      "location": "Portland, Oregon, United States",
+      "url": "https://job-boards.greenhouse.io/perryellisinternational/jobs/4676766006",
+      "postedAt": "2026-05-04",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141955800",
+      "company": "Dungarvin",
+      "title": "Onboarding Associate",
+      "location": "Oregon City, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141955800",
+      "postedAt": "2026-08-06",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Oregon City, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-joinaffect-5251187008",
+      "title": "Oregon Supervisor",
+      "company": "Affect",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/joinaffect/jobs/5251187008",
+      "postedAt": "2026-06-08",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721868325",
+      "company": "Oregon Army National Guard",
+      "title": "Part-Time Army National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721868325",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869722",
+      "company": "Oregon Army National Guard",
+      "title": "Part-Time Oregon Army National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869722",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-merceradvisors-5032345008",
+      "title": "Partner, Senior Wealth Advisor",
+      "company": "Mercer Advisors",
+      "location": "Portland",
+      "url": "https://job-boards.greenhouse.io/merceradvisors/jobs/5032345008",
+      "postedAt": "2025-12-15",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland",
+      "remote": false
+    },
+    {
+      "id": "gh-headlandsresearch-4108146009",
+      "title": "Physician Investigator Opportunities – Multiple Locations Nationwide",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon (+26 other locations)",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4108146009",
+      "postedAt": "2026-01-23",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Atlanta, Georgia; Baltimore, Maryland; Bellingham, Washington; Brownsville, Texas; Chesterfield, Missouri; Detroit, Michigan; El Paso, Texas; Escondido, California; Grand Rapids, Michigan; Kelowna, British Columbia; Lake Worth, Florida; Lincoln, California; Maplewood, Minnesota; Myrtle Beach, South Carolina; Orlando, Florida; Plymouth, Massachusetts; Portland, Oregon; Richmond, British Columbia; Riverside, California; Rolling Hills Estates, California; Sacramento, California; San Diego, California; San Juan, Puerto Rico; Scottsdale, Arizona; Springfield, Missouri; Toronto, Ontario; Wilmington, North Carolina",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8594460002",
       "title": "Presales Solutions Architect",
       "company": "ZoomInfo Technologies LLC",
@@ -197,6 +914,17 @@
       "postedAt": "2026-06-16",
       "source": "Greenhouse public job board API",
       "locationRaw": "Vancouver, Washington, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-terraphaseengineeringinc-4313647009",
+      "title": "Principal Environmental Consultant",
+      "company": "Terraphase Engineering Inc",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/terraphaseengineeringinc/jobs/4313647009",
+      "postedAt": "2026-07-10",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
       "remote": false
     },
     {
@@ -222,6 +950,72 @@
       "remote": false
     },
     {
+      "id": "gh-headlandsresearch-4285457009",
+      "title": "PRN Research Nurse",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4285457009",
+      "postedAt": "2026-06-16",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-perryellisinternational-4689176006",
+      "title": "Product Developer",
+      "company": "Perry Ellis International",
+      "location": "Portland, Oregon, United States",
+      "url": "https://job-boards.greenhouse.io/perryellisinternational/jobs/4689176006",
+      "postedAt": "2026-06-19",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon, United States",
+      "remote": false
+    },
+    {
+      "id": "ab-prophetic-technologies-c39b59c1-5e83-4e67-a4ba-b768b463151d",
+      "title": "Product Manager",
+      "company": "Prophetic",
+      "location": "Portland, OR (+1 other location)",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/c39b59c1-5e83-4e67-a4ba-b768b463151d",
+      "postedAt": "2026-06-24",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR; Texas (Remote)",
+      "remote": false
+    },
+    {
+      "id": "sr-Dungarvin-744000141003459",
+      "company": "Dungarvin",
+      "title": "Program Coordinator (Lead DSP)",
+      "location": "Eugene, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/Dungarvin/744000141003459",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Eugene, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "lv-cscgeneration-2-1ecab684-8699-4a73-88c0-c61265e7042b",
+      "title": "Resident Chef (Sur La Table)",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/cscgeneration-2/1ecab684-8699-4a73-88c0-c61265e7042b",
+      "postedAt": "2026-03-25",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "sr-FortuneBrands-744000140985624",
+      "company": "Fortune Brands",
+      "title": "Retail Sales Representative",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/FortuneBrands/744000140985624",
+      "postedAt": "2026-07-31",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8609656002",
       "title": "Revenue Accountant III",
       "company": "ZoomInfo Technologies LLC",
@@ -230,6 +1024,17 @@
       "postedAt": "2026-06-26",
       "source": "Greenhouse public job board API",
       "locationRaw": "Bethesda, Maryland, United States; Vancouver, Washington, United States; Waltham, Massachusetts, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-trinitashcs-91340989",
+      "company": "Trinitas Healthcare Staffing",
+      "title": "RN Nurse Manager - Operating Room",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/trinitashcs/91340989",
+      "postedAt": "2016-04-11",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
       "remote": false
     },
     {
@@ -277,6 +1082,17 @@
       "remote": false
     },
     {
+      "id": "gh-headlandsresearch-4298060009",
+      "title": "Senior Clinical Research Coordinator",
+      "company": "Headlands Research",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/headlandsresearch/jobs/4298060009",
+      "postedAt": "2026-06-30",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8585803002",
       "title": "Senior Customer Lifecycle Strategy Manager",
       "company": "ZoomInfo Technologies LLC",
@@ -285,6 +1101,39 @@
       "postedAt": "2026-06-10",
       "source": "Greenhouse public job board API",
       "locationRaw": "Bethesda, Maryland, United States; Vancouver, Washington, United States; Waltham, Massachusetts, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-ohsufoundation-5277323008",
+      "title": "Senior HR & Equity Program Manager",
+      "company": "Oregon Health & Science University Foundation",
+      "location": "Portland, Oregon",
+      "url": "https://job-boards.greenhouse.io/ohsufoundation/jobs/5277323008",
+      "postedAt": "2026-06-29",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon",
+      "remote": false
+    },
+    {
+      "id": "gh-mgproperties-5202008007",
+      "title": "Senior Maintenance Technician - East Portland",
+      "company": "MG Properties",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/mgproperties/jobs/5202008007",
+      "postedAt": "2026-08-03",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "lv-Aprio-1bda0311-71bd-4bea-bc3e-0ba5c4119edd",
+      "title": "Senior Manager, Assurance Services",
+      "company": "Aprio",
+      "location": "Lake Oswego North, OR",
+      "url": "https://jobs.lever.co/Aprio/1bda0311-71bd-4bea-bc3e-0ba5c4119edd",
+      "postedAt": "2026-08-06",
+      "source": "Lever public postings API",
+      "locationRaw": "Lake Oswego North, OR",
       "remote": false
     },
     {
@@ -343,6 +1192,28 @@
       "remote": false
     },
     {
+      "id": "lv-Aprio-952fe743-0374-4584-92ab-8647bced33a5",
+      "title": "Senior Tax Manager - Private Client Services",
+      "company": "Aprio",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/Aprio/952fe743-0374-4584-92ab-8647bced33a5",
+      "postedAt": "2026-04-20",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "lv-Aprio-90ab3098-cf81-45fb-92fe-ae9a4a88d33f",
+      "title": "Senior Tax Manager - Real Estate",
+      "company": "Aprio",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/Aprio/90ab3098-cf81-45fb-92fe-ae9a4a88d33f",
+      "postedAt": "2026-07-23",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
       "id": "gh-zoominfo-8610164002",
       "title": "Senior Team Lead, Customer Onboarding",
       "company": "ZoomInfo Technologies LLC",
@@ -351,6 +1222,28 @@
       "postedAt": "2026-07-01",
       "source": "Greenhouse public job board API",
       "locationRaw": "Bethesda, Maryland, United States; Vancouver, Washington, United States; Waltham, Massachusetts, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-ambiententerprises-5350336008",
+      "title": "Service Supervisor - Johnson Barrow",
+      "company": "Ambient Enterprises",
+      "location": "Portland, CA",
+      "url": "https://job-boards.greenhouse.io/ambiententerprises/jobs/5350336008",
+      "postedAt": "2026-07-14",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, CA",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869690",
+      "company": "Oregon Army National Guard",
+      "title": "Signals Intelligence Analyst- 35N- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869690",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
       "remote": false
     },
     {
@@ -376,6 +1269,17 @@
       "remote": false
     },
     {
+      "id": "ab-prophetic-technologies-ddce8ae3-b8d2-494d-92b4-9c2ac3a24be0",
+      "title": "Software Engineer",
+      "company": "Prophetic",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/ddce8ae3-b8d2-494d-92b4-9c2ac3a24be0",
+      "postedAt": "2026-07-14",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
       "id": "gh-newrelic-5231595008",
       "title": "Software Engineer - Query Language",
       "company": "New Relic",
@@ -395,6 +1299,50 @@
       "postedAt": "2026-06-30",
       "source": "Greenhouse public job board API",
       "locationRaw": "Vancouver, Washington, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-CoffmanEngineersInc-744000135555455",
+      "company": "Coffman Engineers",
+      "title": "Structural Drafter (3-5+ years)",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/CoffmanEngineersInc/744000135555455",
+      "postedAt": "2026-07-02",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "lv-Aprio-c4ce3f53-b38d-4f6c-97e0-dc7fd60011e1",
+      "title": "Tax Manager",
+      "company": "Aprio",
+      "location": "Portland, OR",
+      "url": "https://jobs.lever.co/Aprio/c4ce3f53-b38d-4f6c-97e0-dc7fd60011e1",
+      "postedAt": "2026-03-19",
+      "source": "Lever public postings API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "gh-perryellisinternational-4696293006",
+      "title": "Technical Designer",
+      "company": "Perry Ellis International",
+      "location": "Portland, Oregon, United States",
+      "url": "https://job-boards.greenhouse.io/perryellisinternational/jobs/4696293006",
+      "postedAt": "2026-07-15",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-perryellisinternational-4678886006",
+      "title": "Technical Designer / Pattern Maker",
+      "company": "Perry Ellis International",
+      "location": "Portland, Oregon, United States",
+      "url": "https://job-boards.greenhouse.io/perryellisinternational/jobs/4678886006",
+      "postedAt": "2026-05-08",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, Oregon, United States",
       "remote": false
     },
     {
@@ -420,6 +1368,149 @@
       "remote": false
     },
     {
+      "id": "gh-heartflowinc-6122161004",
+      "title": "Territory Account Manager - Portland, OR",
+      "company": "Heartflow",
+      "location": "Portland, OR",
+      "url": "https://job-boards.greenhouse.io/heartflowinc/jobs/6122161004",
+      "postedAt": "2026-07-21",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-4dc3345c-0336-4395-8fa0-e35b2dc7f15a",
+      "title": "Territory Development Partner",
+      "company": "Omada",
+      "location": "Eugene, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/4dc3345c-0336-4395-8fa0-e35b2dc7f15a",
+      "postedAt": "2026-06-26",
+      "source": "Ashby public job board API",
+      "locationRaw": "Eugene, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-a0ca7119-25ca-4bd0-aa84-21464a876a04",
+      "title": "Territory Development Partner",
+      "company": "Omada",
+      "location": "Gresham, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/a0ca7119-25ca-4bd0-aa84-21464a876a04",
+      "postedAt": "2026-06-26",
+      "source": "Ashby public job board API",
+      "locationRaw": "Gresham, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-2f376c33-4d69-4f54-a903-eee8d6130c32",
+      "title": "Territory Development Partner",
+      "company": "Omada",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/2f376c33-4d69-4f54-a903-eee8d6130c32",
+      "postedAt": "2026-06-26",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-c4f48532-a0e1-4752-893d-49aed1690bad",
+      "title": "Territory Development Partner",
+      "company": "Omada",
+      "location": "Salem, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/c4f48532-a0e1-4752-893d-49aed1690bad",
+      "postedAt": "2026-06-28",
+      "source": "Ashby public job board API",
+      "locationRaw": "Salem, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-394fa0e7-07ce-4e37-b3b2-f27c89b23c53",
+      "title": "Territory Development Partner",
+      "company": "Omada",
+      "location": "Vancouver, WA",
+      "url": "https://jobs.ashbyhq.com/omadaai/394fa0e7-07ce-4e37-b3b2-f27c89b23c53",
+      "postedAt": "2026-06-28",
+      "source": "Ashby public job board API",
+      "locationRaw": "Vancouver, WA",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-250d9964-08f2-4186-924c-d5771ec3ddf0",
+      "title": "Territory Partner (Field Sales)",
+      "company": "Omada",
+      "location": "Gresham, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/250d9964-08f2-4186-924c-d5771ec3ddf0",
+      "postedAt": "2026-08-07",
+      "source": "Ashby public job board API",
+      "locationRaw": "Gresham, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-ba666e24-826b-4977-bc86-939a3bf74b54",
+      "title": "Territory Partner (Field Sales)",
+      "company": "Omada",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/ba666e24-826b-4977-bc86-939a3bf74b54",
+      "postedAt": "2026-08-07",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-221f7f58-1355-42ae-943f-80068f3fb078",
+      "title": "Territory Partner (Field Sales)",
+      "company": "Omada",
+      "location": "Salem, OR",
+      "url": "https://jobs.ashbyhq.com/omadaai/221f7f58-1355-42ae-943f-80068f3fb078",
+      "postedAt": "2026-08-07",
+      "source": "Ashby public job board API",
+      "locationRaw": "Salem, OR",
+      "remote": false
+    },
+    {
+      "id": "ab-omadaai-b29a8ce2-ba37-4a54-93fa-ee6e8a44b255",
+      "title": "Territory Partner (Field Sales)",
+      "company": "Omada",
+      "location": "Vancouver, WA",
+      "url": "https://jobs.ashbyhq.com/omadaai/b29a8ce2-ba37-4a54-93fa-ee6e8a44b255",
+      "postedAt": "2026-08-07",
+      "source": "Ashby public job board API",
+      "locationRaw": "Vancouver, WA",
+      "remote": false
+    },
+    {
+      "id": "sr-FortuneBrands-744000139371469",
+      "company": "Fortune Brands",
+      "title": "Territory Sales Manager",
+      "location": "Portland, Oregon, United States",
+      "url": "https://jobs.smartrecruiters.com/FortuneBrands/744000139371469",
+      "postedAt": "2026-07-23",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, Oregon, United States",
+      "remote": false
+    },
+    {
+      "id": "sr-FortuneBrands-744000139371229",
+      "company": "Fortune Brands",
+      "title": "Territory Sales Manager",
+      "location": "Vancouver, Washington, United States",
+      "url": "https://jobs.smartrecruiters.com/FortuneBrands/744000139371229",
+      "postedAt": "2026-07-23",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Vancouver, Washington, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-heartflowinc-6013455004",
+      "title": "Territory Sales Manager - Seattle, WA; Portland, OR",
+      "company": "Heartflow",
+      "location": "Portland, OR (+1 other location)",
+      "url": "https://job-boards.greenhouse.io/heartflowinc/jobs/6013455004",
+      "postedAt": "2026-06-03",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Seattle, WA; Portland, OR",
+      "remote": false
+    },
+    {
       "id": "gh-newrelic-5357453008",
       "title": "Treasury Manager",
       "company": "New Relic",
@@ -428,6 +1519,28 @@
       "postedAt": "2026-07-20",
       "source": "Greenhouse public job board API",
       "locationRaw": "Atlanta, Georgia, USA; Portland, Oregon, USA; Vancouver, Washington, USA",
+      "remote": false
+    },
+    {
+      "id": "sr-PortlandOregon-NationalGuard-743999721869297",
+      "company": "Oregon Army National Guard",
+      "title": "Unit Supply Specialist - Warehouse Manager - 92Y- Part-time National Guard",
+      "location": "Portland, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/PortlandOregon-NationalGuard/743999721869297",
+      "postedAt": "2020-10-14",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Portland, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "ab-prophetic-technologies-13187be4-a114-4fcd-856c-064a29de5ed3",
+      "title": "UX Designer",
+      "company": "Prophetic",
+      "location": "Portland, OR",
+      "url": "https://jobs.ashbyhq.com/prophetic-technologies/13187be4-a114-4fcd-856c-064a29de5ed3",
+      "postedAt": "2026-06-24",
+      "source": "Ashby public job board API",
+      "locationRaw": "Portland, OR",
       "remote": false
     },
     {
@@ -442,6 +1555,61 @@
       "remote": false
     },
     {
+      "id": "sr-REXEL1-744000140704933",
+      "company": "Rexel / Platt Electric",
+      "title": "Warehouse Associate/Branch Driver",
+      "location": "Bend, OR, United States",
+      "url": "https://jobs.smartrecruiters.com/REXEL1/744000140704933",
+      "postedAt": "2026-07-30",
+      "source": "SmartRecruiters public postings API",
+      "locationRaw": "Bend, OR, United States",
+      "remote": false
+    },
+    {
+      "id": "gh-merceradvisors-5216738008",
+      "title": "Wealth Advisor (Portland, OR)",
+      "company": "Mercer Advisors",
+      "location": "Portland",
+      "url": "https://job-boards.greenhouse.io/merceradvisors/jobs/5216738008",
+      "postedAt": "2026-05-11",
+      "source": "Greenhouse public job board API",
+      "locationRaw": "Portland",
+      "remote": false
+    },
+    {
+      "id": "lv-cscgeneration-2-ba62bf4b-6e26-471a-8282-0cdc660fb066",
+      "title": "Director of Accounting, AI Operations",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Remote - US",
+      "url": "https://jobs.lever.co/cscgeneration-2/ba62bf4b-6e26-471a-8282-0cdc660fb066",
+      "postedAt": "2026-06-01",
+      "source": "Lever public postings API",
+      "locationRaw": "Remote - US",
+      "remote": true
+    },
+    {
+      "id": "lv-cscgeneration-2-a0cbf905-3fe2-427f-9ee5-c7d627f26ee9",
+      "title": "Head of People Operations (US)",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Remote - US",
+      "url": "https://jobs.lever.co/cscgeneration-2/a0cbf905-3fe2-427f-9ee5-c7d627f26ee9",
+      "postedAt": "2026-03-10",
+      "source": "Lever public postings API",
+      "locationRaw": "Remote - US",
+      "remote": true
+    },
+    {
+      "id": "lv-cscgeneration-2-f5107ba7-7b48-4cb1-bcef-a8e153e17d9c",
+      "title": "Integrated Marketing Manager, Culinary",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Remote - US",
+      "url": "https://jobs.lever.co/cscgeneration-2/f5107ba7-7b48-4cb1-bcef-a8e153e17d9c",
+      "postedAt": "2026-06-24",
+      "source": "Lever public postings API",
+      "locationRaw": "Remote - US",
+      "remote": true
+    },
+    {
       "id": "gh-airship-4748298101",
       "title": "Manager, Infrastructure Engineering",
       "company": "Airship",
@@ -450,6 +1618,17 @@
       "postedAt": "2026-01-07",
       "source": "Greenhouse public job board API",
       "locationRaw": "Remote - United States",
+      "remote": true
+    },
+    {
+      "id": "lv-cscgeneration-2-f6be3ed6-83dc-4bd6-8132-0673e578d99f",
+      "title": "Merchandise Planner",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Remote - US",
+      "url": "https://jobs.lever.co/cscgeneration-2/f6be3ed6-83dc-4bd6-8132-0673e578d99f",
+      "postedAt": "2026-06-13",
+      "source": "Lever public postings API",
+      "locationRaw": "Remote - US",
       "remote": true
     },
     {
@@ -527,6 +1706,17 @@
       "postedAt": "2026-08-03",
       "source": "Greenhouse public job board API",
       "locationRaw": "Remote-US-NY",
+      "remote": true
+    },
+    {
+      "id": "lv-cscgeneration-2-738fe1cc-0ec0-4d43-a5b3-f69caef4657f",
+      "title": "Senior Strategy Analyst",
+      "company": "Sur La Table (CSC Generation)",
+      "location": "Remote - US",
+      "url": "https://jobs.lever.co/cscgeneration-2/738fe1cc-0ec0-4d43-a5b3-f69caef4657f",
+      "postedAt": "2026-05-04",
+      "source": "Lever public postings API",
+      "locationRaw": "Remote - US",
       "remote": true
     },
     {
