@@ -111,7 +111,9 @@
   font: var(--type-subtitle);
   margin: var(--space-2xl) 0 var(--space-md);
 }
-.fga-subhead:first-of-type { margin-top: 0; }
+/* Only zero the top margin inside a card — at page level the heading needs
+ * air, or it collides with the card above it. */
+.fg-card > .fga-subhead:first-child { margin-top: 0; }
 
 /* --- occupation match --------------------------------------------------- */
 

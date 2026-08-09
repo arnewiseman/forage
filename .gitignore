@@ -8,3 +8,9 @@ node_modules/
 
 # static build output
 dist/
+
+# presentation material — local only, not deployed
+presentation/
+
+# firebase deploy cache
+.firebase/

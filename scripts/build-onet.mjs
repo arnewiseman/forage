@@ -37,12 +37,17 @@ try {
   execFileSync('unzip', ['-o', '-q', join(work, 'db.zip'), '-d', work]);
 
   // Tab-separated with a header row. Values are never quoted in this dataset.
+  //
+  // The files are CRLF. Splitting on \n alone leaves a trailing \r on the LAST
+  // cell of every row AND on the last column NAME, so `row.Description`,
+  // `row.Index` and `row['In Demand']` all silently read undefined — the header
+  // key is really "Description\r". Strip it, or every final column is lost.
   const table = (name) => {
-    const lines = readFileSync(join(work, RELEASE, `${name}.txt`), 'utf8').split('\n');
-    const cols = lines[0].split('\t');
+    const lines = readFileSync(join(work, RELEASE, `${name}.txt`), 'utf8').split(/\r?\n/);
+    const cols = lines[0].split('\t').map((col) => col.trim());
     return lines.slice(1).filter(Boolean).map((line) => {
       const cells = line.split('\t');
-      return Object.fromEntries(cols.map((col, i) => [col, cells[i]]));
+      return Object.fromEntries(cols.map((col, i) => [col, cells[i]?.trim()]));
     });
   };
 
