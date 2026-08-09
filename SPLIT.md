@@ -1,75 +1,95 @@
 # Two people, two hours
 
-**Arne — backend.** O\*NET + CareerOneStop. Owns `server.js`, `lib/*`, `scripts/*`.
+**Arne — backend.** Owns `server.js`, `lib/*`, `scripts/*`, `data/*`.
 **Second engineer — design system + UI.** Owns `public/*`.
 
-The scaffold is already runnable: `npm run dev` boots and the whole flow renders end to end.
-File ownership is disjoint — neither of you edits the other's files.
+File ownership is disjoint. Neither of you edits the other's files.
 
-## What's already done (don't rebuild it)
+## Start here
 
-**Jobs are live and need no credentials.** Greenhouse and Lever both expose public,
-unauthenticated board APIs. Verified working: 6/6 boards reachable, 48 open Portland-metro roles
-right now across New Relic, ZoomInfo, Smarsh, Jama, Airship, and Vacasa. `lib/boards.js` fetches
-them, `lib/jobs.js` matches them to an occupation, and `scripts/snapshot-jobs.mjs` writes the
-offline fallback.
+```bash
+npm start        # http://localhost:3000
+```
 
-This deletes the PRD's 0:10–0:30 block entirely. Nobody hand-assembles a job file, and the data is
-*more* honest than the original plan — it's a real feed, not a morning snapshot.
+No install, no credentials, no build step. The full flow works right now:
+free-text input → occupation match → skills → adjacent occupations → skills gap
+→ real open Portland jobs → honest fallback when there's no match.
 
-**Add a board** by appending one line to `SOURCES` in `lib/boards.js`. A token that 404s is skipped
-silently. The token is the slug in a company's public board URL. More Portland employers = a better
-demo, and it costs one line each.
+**There is no blocker left.** That's the important part.
 
-## The one thing that still needs credentials
+## Why there's no blocker
 
-**O\*NET returns 401 without registration.** There is no way around it, and it's the backbone of
-the whole app — occupation match, skills, and related occupations all come from it. Register before
-the clock starts if you possibly can, not at 0:00.
+The PRD's single point of failure was O\*NET registration — `services.onetcenter.org`
+returns `401` without a human-reviewed account. But O\*NET publishes the same data as a
+**public-domain bulk download with no account at all**, so `data/onet.json` is built
+from that (`npm run onet`). 879 occupations, 55,120 alternate titles, skills, knowledge,
+hot technologies, related occupations.
 
-CareerOneStop (the skills-gap step) is the same story. See the contingency below.
+Same story for jobs: Greenhouse's and Lever's board APIs are public and unauthenticated.
+6/6 boards reachable, 48 open Portland-metro roles right now.
+
+And the skills gap is an importance diff across O\*NET's Skills, Knowledge, and Hot
+Technology tables — so CareerOneStop isn't needed either. Drop credentials in `.env`
+and `/api/gap` upgrades to their API automatically, but nothing depends on it.
+
+**Net effect: the 0:00–0:30 block of the PRD is already done, and the demo cannot die
+on a network call.**
 
 ---
 
 ## Arne — backend
 
-| Clock | Task |
+Everything here is quality work, not unblocking work. Pick in this order.
+
+| Priority | Task |
 |---|---|
-| **before 0:00** | Register at services.onetcenter.org and careeronestop.org. `cp .env.example .env`, fill it, run `./scripts/capture-fixture.sh`. If registration is approval-gated you need to know now, not at 0:10. |
-| 0:00–0:40 | Read the raw JSON from that script. Fix every field path marked `VERIFY:` in `lib/onet.js`. The fetch plumbing is written; this is just reconciling field names. Then `npm start && npm run smoke`. |
-| 0:40–1:10 | Same for `lib/careeronestop.js`. The have-vs-missing flag in `normalizeGap` is the one genuinely uncertain field — resolve it there, never in the frontend. |
-| 1:10–1:25 | Overwrite `data/fixtures/*.json` with **real** captured responses in our normalized shape. That's the demo safety net; a hand-written fixture is a lie waiting to be caught. |
-| 1:25–1:40 | Add 3–5 more Portland employers to `SOURCES`, re-run `node scripts/snapshot-jobs.mjs`. |
-| 1:40–2:00 | Deploy. `render.yaml` is a ready Blueprint — set the four secrets, push. **Render's free plan cold-starts in ~50 seconds after 15 min idle; load the URL right before you present.** |
+| 1 | **Job matching quality.** `lib/jobs.js` matches occupation title tokens against job titles. It works, but "Customer Solutions Analyst" surfacing for a market-research target is loose. Try matching against the occupation's *alternate titles* too — `data/onet.json` has 55k of them and they're much closer to how postings are worded. Highest-leverage change in the repo. |
+| 2 | **More employers.** One line each in `SOURCES` in `lib/boards.js`, then `npm run jobs`. A 404 token is skipped silently. More Portland employers = a better demo, and healthcare/trades boards would fix the fallback path being easy to trigger. |
+| 3 | **Deploy.** `render.yaml` is a ready Blueprint and needs no secrets. **Render's free plan cold-starts in ~50 seconds after 15 min idle — load the URL right before you present.** |
+| 4 | **Growth sectors.** `data/growth-sectors.json` still has `TODO` trend strings. Real QualityInfo.org Portland Metro figures, 10 minutes. |
+| 5 | Optional: register CareerOneStop. Buys official gap figures over our local diff. Genuinely optional now. |
 
 ## Second engineer — design system + UI
 
 | Clock | Task |
 |---|---|
-| 0:00–1:20 | Build the design system against `npm run dev`. It serves fixtures, so you never wait on Arne or on credentials. All four steps already render with real job data. |
+| 0:00–1:20 | Build the design system against `npm start`. Real data flows from minute zero — you're never blocked on Arne or on credentials. |
 | 1:20–1:40 | Integrate. Ideally you replace `public/styles.css` wholesale and touch no markup — the hooks are listed in a comment at the top of that file. If you need new hooks, add classes to `index.html`; it's yours. |
 | 1:40–1:50 | The three states that decide whether this feels real: **loading** (the live board fetch takes 1–2s), **no-match fallback**, and **error**. Click all three. |
-| 1:50–2:00 | Confirm the disclosure line is still visible in the footer, and that the jobs provenance line renders. Don't cut them — they're the integrity of the demo. |
+| 1:50–2:00 | Confirm the footer disclosure and the jobs provenance line still render. Don't cut them — they're the integrity of the demo. |
 
-**Test the fallback path:** submit anything, then pick an occupation with no matching roles. From
-Dana's flow, the 2nd adjacent occupation currently has matches; try a healthcare-flavored input to
-land on the fallback.
+**To see the fallback path:** submit `I was a registered nurse` and pick any adjacent
+occupation. No healthcare employers are in `SOURCES` yet, so it lands on growth sectors.
 
 ---
+
+## Demo notes
+
+The flow that works today, verified end to end:
+
+```
+"I managed ad campaigns and client relationships for 4 years"
+  → Advertising and Promotions Managers
+  → adjacent: Advertising Sales Agents · Marketing Managers
+             · Market Research Analysts · Search Marketing Strategists
+  → gap to Market Research Analyst:
+      missing  Mathematics (63 vs 81), Sociology and Anthropology,
+               Amazon Redshift, Apache Hadoop, Apache Hive
+      have     Sales and Marketing, Communications and Media, Active Listening…
+  → 7 open Portland roles, fetched live
+```
+
+**Say this out loud:** *"Occupations, skills and the gap come from the Department of
+Labor's O\*NET database — public domain, queried locally. The job listings are fetched
+live from six Portland employers' public job boards. We match jobs to occupations on
+title keywords, which is rough — these are leads, not a filtered shortlist."*
+
+Naming that last limitation is worth more than hiding it.
 
 ## Agree out loud
 
 - **`API.md` is frozen.** Field renames are the one thing that can cost 20 minutes at 1:30.
-- The clients normalize upstream into *our* shape. When Arne learns what O\*NET really returns, the
-  fix lands in one function and the UI never notices. Keep it that way.
 - **Commit small, push often, `main` only.** No branches, no PRs, two hours.
-
-## Contingency: CareerOneStop doesn't come through
-
-It's step 6 of 8 and the emotional center of the demo, so decide this now rather than at 1:15.
-Compute the gap by diffing the two occupations' O\*NET skill lists instead — same screen, one API
-instead of two, and honest as long as the README says so. It's a ~20-line change to
-`lib/careeronestop.js` behind the same function signature, so nothing else moves.
 
 ## Hard cut list (from the PRD)
 

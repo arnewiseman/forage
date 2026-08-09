@@ -2,36 +2,43 @@
 
 Both engineers code against this. **Do not change a field name without telling the other person out loud.**
 
-The whole point: `lib/onet.js` and `lib/careeronestop.js` **normalize at the boundary**. They return
-*our* shape, never the raw upstream shape. When Engineer A discovers what O\*NET actually returns,
-the fix lands in one normalize function and the frontend never notices.
+The whole point: `lib/*` **normalizes at the boundary**. Every client returns *our* shape, never
+the raw upstream shape. Swapping the local gap diff for the CareerOneStop API, or adding a job
+board, changes one function and the frontend never notices.
 
-Every response in `data/fixtures/` is a literal example of these shapes. With `MOCK=1` the server
-serves exactly those files, so the frontend is fully buildable before any credential exists.
+Nothing here needs credentials, so every route returns real data from `npm start`. The frontend is
+fully exercisable from minute zero.
 
 ## Conventions
 
 - All responses are JSON.
 - Errors: HTTP 4xx/5xx with `{ "error": "human readable message", "code": "MACHINE_CODE" }`.
-- `code` is always an O\*NET-SOC code string like `"41-3011.00"`.
+- `code` is always an O\*NET-SOC code string like `"11-2011.00"`.
 - Empty results are `[]`, never `null`.
 
 ---
 
 ## `GET /api/health`
 
-Sanity check. Also tells you whether you're on live data or fixtures.
+Sanity check. Also reports where each dimension's data is coming from.
 
 ```json
-{ "ok": true, "mock": true, "onetConfigured": false, "cosConfigured": false }
+{
+  "ok": true,
+  "mock": false,
+  "onet": "local (public-domain bulk database, no credentials)",
+  "gap": "local importance diff",
+  "jobs": "live Greenhouse + Lever (public APIs)"
+}
 ```
 
 ---
 
 ## `POST /api/match`
 
-Step 1–4 of the flow, in one round trip. Frontend sends the free-text job description; server does
-the O\*NET keyword search, the skills pull, and the related-occupations pull.
+Steps 1–4 of the flow, in one round trip. Frontend sends the free-text job description; the server
+matches it against O\*NET titles, alternate titles and descriptions, then pulls skills and adjacent
+occupations. All local.
 
 **Request**
 
@@ -44,37 +51,40 @@ the O\*NET keyword search, the skills pull, and the related-occupations pull.
 ```json
 {
   "occupation": {
-    "code": "41-3011.00",
-    "title": "Advertising Sales Agents",
-    "description": "Sell or solicit advertising space, time, or media in publications..."
+    "code": "11-2011.00",
+    "title": "Advertising and Promotions Managers",
+    "description": "Plan, direct, or coordinate advertising policies and programs..."
   },
   "skills": [
-    { "name": "Persuasion", "description": "Persuading others to change their minds or behavior.", "importance": 75 }
+    { "name": "Active Listening", "description": "", "importance": 82 }
   ],
   "related": [
     {
       "code": "13-1161.00",
       "title": "Market Research Analysts and Marketing Specialists",
-      "overlap": "Both roles live on client data and campaign performance — you already read the numbers, this role owns them."
+      "overlap": "Leans on the same reading comprehension, writing and critical thinking you already use — this is a step across, not a restart."
     }
   ],
-  "source": "onet"
+  "source": "onet-local"
 }
 ```
 
 - `skills` — top 5–8, sorted by `importance` descending. `importance` is 0–100.
-- `related` — 3–5 items. `overlap` is a **plain-language sentence**, not a score. If a real O\*NET
-  similarity score is all that's available, Engineer A writes the sentence template around it.
-- `source` — `"onet"` on a live call, `"fixture"` when MOCK or when the live call failed and we fell
-  back. The frontend does not need to show this, but it's how we debug on stage.
+- `related` — up to 5 items. `overlap` is a **plain-language sentence**, not a score — it's built by
+  naming the skills the two occupations actually share. See `describeOverlap` in `lib/onet.js`.
+- `skills[].description` is `""` in local mode. The frontend must render fine without it.
+- `source` — `"onet-local"`. Served from `data/onet.json`, built from O*NET's public-domain bulk
+  download. No credentials, no network call.
 
-**Errors** — `400 EMPTY_INPUT`, `404 NO_MATCH` (nothing matched the keywords), `502 UPSTREAM_ERROR`.
+**Errors** — `400 EMPTY_INPUT`, `404 NO_MATCH` (nothing matched above the confidence floor).
 
 ---
 
 ## `GET /api/gap?from=41-3011.00&to=13-1161.00`
 
-Step 6. CareerOneStop skills gap between the matched occupation and the chosen target.
+Step 6. The gap between the matched occupation and the chosen target, as an O\*NET importance diff
+across Skills, Knowledge and Hot Technologies. Uses the CareerOneStop API instead if credentials
+exist — identical shape either way.
 
 **Response `200`**
 
@@ -83,19 +93,22 @@ Step 6. CareerOneStop skills gap between the matched occupation and the chosen t
   "from": { "code": "41-3011.00", "title": "Advertising Sales Agents" },
   "to":   { "code": "13-1161.00", "title": "Market Research Analysts and Marketing Specialists" },
   "have": [
-    { "name": "Persuasion", "note": "You already do this daily." }
+    { "name": "Sales and Marketing", "note": "" }
   ],
   "missing": [
-    { "name": "Statistical Analysis", "note": "The one real gap — this is what a 6-week course closes." }
+    { "name": "Mathematics", "note": "You use this, but the target leans harder on it (63 vs 81)." },
+    { "name": "Apache Hadoop", "note": "Listed as a hot technology for this role, not for yours." }
   ],
-  "source": "careeronestop"
+  "source": "onet-local"
 }
 ```
 
 - `note` is optional and may be `""`. The frontend must render fine without it.
-- Order matters: put the **most demo-worthy missing skill first**. Engineer A owns that sort.
+- Order matters: the **biggest gap comes first**, then concrete tools. `lib/gap.js` owns that sort.
+- `source` — `"onet-local"` (importance diff across Skills, Knowledge and Hot Technologies) or
+  `"careeronestop"` if credentials exist. Identical shape either way.
 
-**Errors** — `400 MISSING_PARAM`, `502 UPSTREAM_ERROR`.
+**Errors** — `400 MISSING_PARAM`, `404 NO_MATCH`.
 
 ---
 
@@ -141,7 +154,7 @@ match on title-token overlap. `code` is carried through for display only.
 {
   "matches": [],
   "fallback": {
-    "message": "No open Portland-area role in our dataset maps to this occupation right now.",
+    "message": "None of the 48 open Portland-area roles we can see right now line up with Registered Nurses...",
     "sectors": [
       { "name": "Health Care & Social Assistance", "trend": "Fastest-growing sector in the Portland metro", "source": "QualityInfo.org" }
     ],

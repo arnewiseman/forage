@@ -1,10 +1,12 @@
 // Skills Bridge PDX — thin backend.
-// Exists only because O*NET and CareerOneStop both require auth headers the
-// browser can't send. Everything else is static files.
 //
-// Zero dependencies on purpose: no npm install, no lockfile, deploys anywhere.
-//   node --env-file=.env server.js
-//   MOCK=1 node server.js          (fixtures only, no credentials needed)
+// Zero dependencies, zero credentials, no build step:
+//   npm start
+//
+// O*NET runs off a local copy of the public-domain bulk database
+// (scripts/build-onet.mjs). Jobs come live from Greenhouse's and Lever's
+// public board APIs. Nothing here needs an API key. CareerOneStop is the one
+// optional upgrade — if its credentials exist, /api/gap prefers it.
 
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -14,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 import * as onet from './lib/onet.js';
 import * as cos from './lib/careeronestop.js';
 import * as jobs from './lib/jobs.js';
-import { fixture } from './lib/fixtures.js';
+import { computeGap } from './lib/gap.js';
 
 const ROOT = fileURLToPath(new URL('.', import.meta.url));
 const PUBLIC_DIR = join(ROOT, 'public');
@@ -61,50 +63,49 @@ const routes = {
     send(res, 200, {
       ok: true,
       mock: MOCK,
-      onetConfigured: onet.isConfigured(),
-      cosConfigured: cos.isConfigured(),
+      onet: 'local (public-domain bulk database, no credentials)',
+      gap: cos.isConfigured() ? 'careeronestop' : 'local importance diff',
+      jobs: 'live Greenhouse + Lever (public APIs)',
     });
   },
 
+  // Served from data/onet.json, built from O*NET's public-domain bulk
+  // download. No credentials, no network call, nothing to fail on stage.
   'POST /api/match': async (req, res) => {
     const body = await readJsonBody(req);
     const text = (body.text || '').trim();
     if (!text) return fail(res, 400, 'EMPTY_INPUT', 'Tell us about the job you did.');
 
-    // Fixture path is both the pre-credentials dev mode AND the live-demo
-    // safety net. If the network dies on stage, the demo still runs.
-    if (MOCK || !onet.isConfigured()) {
-      return send(res, 200, { ...(await fixture('match')), source: 'fixture' });
+    const occupation = await onet.searchOccupation(text);
+    if (!occupation) {
+      return fail(res, 404, 'NO_MATCH', "We couldn't match that to an occupation. Try describing the day-to-day work.");
     }
-
-    try {
-      const occupation = await onet.searchOccupation(text);
-      if (!occupation) return fail(res, 404, 'NO_MATCH', "We couldn't match that to an occupation. Try describing the day-to-day work.");
-      const [skills, related] = await Promise.all([
-        onet.getSkills(occupation.code),
-        onet.getRelated(occupation.code),
-      ]);
-      send(res, 200, { occupation, skills, related, source: 'onet' });
-    } catch (err) {
-      console.error('[match] upstream failed, serving fixture:', err.message);
-      send(res, 200, { ...(await fixture('match')), source: 'fixture' });
-    }
+    const [skills, related] = await Promise.all([
+      onet.getSkills(occupation.code),
+      onet.getRelated(occupation.code),
+    ]);
+    send(res, 200, { occupation, skills, related, source: 'onet-local' });
   },
 
+  // Local importance diff by default. CareerOneStop only if credentials exist,
+  // and it falls back here rather than erroring.
   'GET /api/gap': async (req, res, url) => {
     const from = url.searchParams.get('from');
     const to = url.searchParams.get('to');
     if (!from || !to) return fail(res, 400, 'MISSING_PARAM', 'Need both ?from= and ?to= occupation codes.');
 
-    if (MOCK || !cos.isConfigured()) {
-      return send(res, 200, { ...(await fixture('gap')), source: 'fixture' });
+    if (!MOCK && cos.isConfigured()) {
+      try {
+        return send(res, 200, { ...(await cos.getSkillsGap(from, to)), source: 'careeronestop' });
+      } catch (err) {
+        console.error('[gap] CareerOneStop failed, computing locally:', err.message);
+      }
     }
 
     try {
-      send(res, 200, { ...(await cos.getSkillsGap(from, to)), source: 'careeronestop' });
+      send(res, 200, { ...(await computeGap(from, to)), source: 'onet-local' });
     } catch (err) {
-      console.error('[gap] upstream failed, serving fixture:', err.message);
-      send(res, 200, { ...(await fixture('gap')), source: 'fixture' });
+      fail(res, err.code === 'NO_MATCH' ? 404 : 500, err.code || 'SERVER_ERROR', err.message);
     }
   },
 
@@ -155,7 +156,7 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`Skills Bridge PDX  →  http://localhost:${PORT}`);
-  console.log(`  MOCK=${MOCK ? '1 (serving fixtures)' : '0 (live API calls)'}`);
-  console.log(`  O*NET credentials: ${onet.isConfigured() ? 'set' : 'MISSING'}`);
-  console.log(`  CareerOneStop credentials: ${cos.isConfigured() ? 'set' : 'MISSING'}`);
+  console.log(`  O*NET: local bulk database (no credentials)`);
+  console.log(`  Gap: ${cos.isConfigured() ? "CareerOneStop API" : "local importance diff"}`);
+  console.log(`  Jobs: live Greenhouse + Lever`);
 });

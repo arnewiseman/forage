@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Hits every route against a running server. If this is green, the flow works.
-#   npm run dev        # in one terminal
+#   npm start          # in one terminal
 #   npm run smoke      # in another
 set -euo pipefail
 

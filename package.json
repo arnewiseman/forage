@@ -7,8 +7,9 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "start": "node server.js",
-    "dev": "MOCK=1 node server.js",
-    "live": "node --env-file=.env server.js",
+    "dev": "node server.js",
+    "onet": "node scripts/build-onet.mjs",
+    "jobs": "node scripts/snapshot-jobs.mjs",
     "smoke": "./scripts/smoke.sh"
   },
   "dependencies": {}

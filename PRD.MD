@@ -51,13 +51,23 @@ If you find yourself building any of the above, you've drifted off the PRD.
 
 **Disclosure line for demo:** ~~"Occupation matching and skill gaps are live O*NET/CareerOneStop calls. The Portland job listings are a real dataset we pulled this morning from three local employers' public job boards — not a live feed."~~
 
-> **AMENDED 2026-08-08 — say this instead.** Greenhouse's and Lever's board APIs turned out to be
-> public and unauthenticated, so the job listings *are* a live feed. Verified: 6/6 boards reachable,
-> 48 open Portland-metro roles. This deletes the 0:10–0:30 hand-assembly block below.
+> **AMENDED 2026-08-08 — say this instead.** Two things turned out better than this PRD assumed,
+> and together they remove every credential from the project:
 >
-> New line: *"Occupation matching and skill gaps are live O\*NET and CareerOneStop calls. The job
-> listings are fetched live from six Portland employers' public job boards. We match jobs to
-> occupations on title keywords, which is rough — these are leads, not a filtered shortlist."*
+> 1. **Greenhouse and Lever board APIs are public and unauthenticated.** Job listings are a genuine
+>    live feed. Verified: 6/6 boards reachable, 48 open Portland-metro roles.
+> 2. **O\*NET publishes its whole database as a public-domain download, no account needed.** The
+>    web service 401s without human-reviewed registration, but the bulk file doesn't. So occupation
+>    match, skills, related occupations *and* the skills gap all run locally — which also means
+>    nothing can die on a network call mid-demo. CareerOneStop became optional.
+>
+> This deletes the 0:00–0:30 block below entirely, and the "single point of failure" in the
+> Timeline section no longer exists.
+>
+> New line: *"Occupations, skills and the gap come from the Department of Labor's O\*NET database —
+> public domain, queried locally. The job listings are fetched live from six Portland employers'
+> public job boards. We match jobs to occupations on title keywords, which is rough — these are
+> leads, not a filtered shortlist."*
 >
 > Saying the last sentence out loud is worth more than hiding it. See `SPLIT.md`.
 
