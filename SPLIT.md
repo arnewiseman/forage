@@ -29,7 +29,7 @@ Owns: `server.js`, `lib/*`, `scripts/*`
 | 0:30–1:00 | `MOCK=0 npm start` → `npm run smoke`. Get `/api/match` returning live O\*NET data. |
 | 1:00–1:20 | Same for `/api/gap`. CareerOneStop's have/missing flag is the one genuinely uncertain field — resolve it in `normalizeGap`, not in the frontend. |
 | 1:20–1:30 | Overwrite `data/fixtures/*.json` with **real** captured responses in our normalized shape. This is the demo safety net; a fabricated fixture is worse than none. |
-| 1:30–2:00 | Deploy (`render.yaml` is ready — Blueprint, set the four secrets, push). Get the public URL to B. |
+| 1:30–2:00 | Deploy (`render.yaml` is ready — Blueprint, set the four secrets, push). Get the public URL to B. **Render's free plan spins down after ~15 minutes idle and cold-starts in ~50 seconds — load the URL once right before you present.** A blank screen for the first minute of a 90-second demo is a self-inflicted loss. |
 
 **Do not touch** `public/*` or `data/portland-jobs.json`.
 
