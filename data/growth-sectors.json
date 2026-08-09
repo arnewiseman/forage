@@ -1,0 +1,33 @@
+{
+  "_README": [
+    "OWNER: Engineer B — hackathon clock 0:20–0:30.",
+    "Shown only when /api/jobs finds no local match. This is the no-dead-ends path.",
+    "REPLACE the trend strings with real figures from QualityInfo.org Portland Metro data.",
+    "The sector names are real NAICS sectors; the growth claims below are placeholders.",
+    "Target: 5–10 rows. Keep each trend to one sentence a person can repeat out loud.",
+    "",
+    "The `resource` block is a real org — verify the URL still loads, then drop the TODO."
+  ],
+  "sectors": [
+    {
+      "name": "Health Care & Social Assistance",
+      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
+      "source": "QualityInfo.org"
+    },
+    {
+      "name": "Construction",
+      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
+      "source": "QualityInfo.org"
+    },
+    {
+      "name": "Professional & Business Services",
+      "trend": "TODO — replace with a real QualityInfo Portland Metro growth figure",
+      "source": "QualityInfo.org"
+    }
+  ],
+  "resource": {
+    "name": "WorkSource Oregon",
+    "url": "https://worksourceoregon.org/",
+    "description": "Free state-run career counseling, training referrals, and in-person centers across the Portland metro."
+  }
+}

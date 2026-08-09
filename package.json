@@ -1,0 +1,15 @@
+{
+  "name": "skills-bridge-pdx",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Type in your old job. See what it transfers to, the gap to close, and open Portland roles.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "MOCK=1 node server.js",
+    "live": "node --env-file=.env server.js",
+    "smoke": "./scripts/smoke.sh"
+  },
+  "dependencies": {}
+}

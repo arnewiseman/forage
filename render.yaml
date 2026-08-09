@@ -1,0 +1,25 @@
+# Deploy target. "Demo link works standalone, no localhost dependency" is a
+# 1:45 checkbox in the PRD — with this committed it's a push, not a new task.
+#
+# Render → New → Blueprint → point at this repo. Then set the four secrets in
+# the dashboard (they are marked sync:false so they are never in git).
+#
+# Zero dependencies means there is genuinely nothing to build.
+services:
+  - type: web
+    name: skills-bridge-pdx
+    runtime: node
+    plan: free
+    buildCommand: "echo 'no build step'"
+    startCommand: "node server.js"
+    envVars:
+      - key: MOCK
+        value: "0"
+      - key: ONET_USERNAME
+        sync: false
+      - key: ONET_PASSWORD
+        sync: false
+      - key: CAREERONESTOP_USER_ID
+        sync: false
+      - key: CAREERONESTOP_TOKEN
+        sync: false

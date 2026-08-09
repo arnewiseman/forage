@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills Bridge PDX — what your work transfers to</title>
+  <meta name="description" content="Describe the job you did. See what it transfers to, the gap to close, and open Portland roles.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1>Skills Bridge PDX</h1>
+    <p class="tagline">Describe the job you did. Find out what it actually transfers to.</p>
+  </header>
+
+  <main>
+    <!-- STEP 1 — the only input in the entire app -->
+    <section class="card" id="step-input">
+      <form id="job-form">
+        <label for="job-text">What did you do at work?</label>
+        <p class="hint">Plain English. No resume, no jargon. A couple of sentences is plenty.</p>
+        <textarea id="job-text" name="text" rows="4"
+          placeholder="I managed ad campaigns and client relationships for 4 years"></textarea>
+        <button type="submit" id="submit-btn">Find what transfers</button>
+      </form>
+    </section>
+
+    <!-- STEP 2 — matched occupation + its skills + adjacent occupations -->
+    <section class="card hidden" id="step-match" aria-live="polite">
+      <h2>Closest match to what you described</h2>
+      <div id="occupation"></div>
+
+      <h3>Skills this work is built on</h3>
+      <ul class="skills" id="skills"></ul>
+
+      <h3>Where these skills already transfer</h3>
+      <p class="hint">Pick one to see exactly what stands between you and it.</p>
+      <ul class="related" id="related"></ul>
+    </section>
+
+    <!-- STEP 3 — the gap -->
+    <section class="card hidden" id="step-gap" aria-live="polite">
+      <h2 id="gap-heading">Your gap</h2>
+      <div class="gap-cols">
+        <div>
+          <h3 class="have">You already have</h3>
+          <ul id="gap-have"></ul>
+        </div>
+        <div>
+          <h3 class="missing">You'd need to add</h3>
+          <ul id="gap-missing"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4 — real open roles, or the honest dead end -->
+    <section class="card hidden" id="step-jobs" aria-live="polite">
+      <h2>Open in Portland right now</h2>
+      <ul class="jobs" id="jobs"></ul>
+      <div class="hidden" id="jobs-fallback"></div>
+    </section>
+
+    <p class="error hidden" id="error" role="alert"></p>
+    <p class="loading hidden" id="loading">Working…</p>
+  </main>
+
+  <!-- Disclosure lives in the UI itself, not just the demo script. -->
+  <footer>
+    <p class="disclosure">
+      Occupation matching and skill gaps are live
+      <a href="https://services.onetcenter.org/">O*NET</a> and
+      <a href="https://www.careeronestop.org/">CareerOneStop</a> calls.
+      The Portland job listings are a real dataset we pulled by hand from local employers'
+      public job boards — <strong>not a live feed</strong>.
+    </p>
+    <p class="disclosure">
+      Built in two hours at the Claude Impact Portland hackathon.
+      <a href="https://github.com/arnewiseman/forage">Source</a>.
+    </p>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/* BAREBONES ON PURPOSE — a design system is being built separately and will
+   replace this file. Do not grow it.
+   Everything here is either structural (the app is broken without it) or a
+   readability floor. All visual decisions belong in the design system.
+
+   Styling hooks the markup already provides:
+     ids       #step-input #step-match #step-gap #step-jobs #error #loading
+     classes   .card .masthead .tagline .hint .skills .related .related-btn
+               .related-title .related-overlap .gap-cols .have .missing .note
+               .jobs .job-meta .disclosure .error .loading .hidden          */
+
+/* Structural — the show/hide state machine in app.js depends on this. */
+.hidden { display: none; }
+
+/* Readability floor so the flow is testable before the design system lands. */
+body {
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  max-width: 46rem;
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+.card { margin-bottom: 1.5rem; }
+
+textarea { width: 100%; padding: .5rem; font: inherit; }
+
+/* Adjacent-occupation picks are buttons; keep them readable as list rows. */
+.related-btn { display: block; width: 100%; text-align: left; font: inherit; }
+.related-title { display: block; font-weight: 600; }
+
+.job-meta { display: block; }
+
+.disclosure { font-size: .85rem; }

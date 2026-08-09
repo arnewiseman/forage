@@ -1,0 +1,40 @@
+{
+  "_README": [
+    "OWNER: Engineer B — hackathon clock 0:10–0:20.",
+    "REPLACE every row below. They are schema placeholders, NOT real listings.",
+    "The integrity claim in our demo is that this list is real. Do not break it.",
+    "",
+    "How to fill it:",
+    "  1. Open boards-api.greenhouse.io/v1/boards/{token}/jobs in a browser and confirm the token is live.",
+    "  2. Keep only Portland-area / Oregon-remote roles that are open right now.",
+    "  3. Tag each with the O*NET-SOC code(s) it plausibly maps to. Hand-tagging is fine and expected.",
+    "  4. Set pulledAt to today. The demo disclosure line quotes it.",
+    "  5. If no Greenhouse token works, hand-compile from public postings and set source accordingly.",
+    "",
+    "Target: 15–20 rows. Make sure at least one maps to the occupation you demo."
+  ],
+  "pulledAt": "REPLACE_WITH_TODAYS_DATE",
+  "disclosure": "Real open roles pulled by hand from public employer job boards. Not a live feed.",
+  "jobs": [
+    {
+      "id": "example-001",
+      "title": "Marketing Analyst",
+      "company": "EXAMPLE_DO_NOT_DEMO — replace with a verified listing",
+      "location": "Portland, OR",
+      "url": "https://example.com",
+      "socCodes": ["13-1161.00"],
+      "source": "PLACEHOLDER",
+      "pulledAt": "REPLACE_WITH_TODAYS_DATE"
+    },
+    {
+      "id": "example-002",
+      "title": "Customer Success Manager",
+      "company": "EXAMPLE_DO_NOT_DEMO — replace with a verified listing",
+      "location": "Portland, OR (hybrid)",
+      "url": "https://example.com",
+      "socCodes": ["41-3091.00", "13-1161.00"],
+      "source": "PLACEHOLDER",
+      "pulledAt": "REPLACE_WITH_TODAYS_DATE"
+    }
+  ]
+}
